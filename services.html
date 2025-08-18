@@ -37,6 +37,91 @@
     
     <!-- Additional styles for services page -->
     <style>
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Scroll margin for anchor links */
+        section[id] {
+            scroll-margin-top: 100px;
+        }
+        
+        /* Process Section Spacing Fixes */
+        .process-section .section-header {
+            margin-bottom: 2rem !important;
+        }
+        
+        .process-section .section-title {
+            margin-bottom: 1rem !important;
+        }
+        
+        .process-section .section-subtitle {
+            margin-bottom: 2rem !important;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 0 !important;
+        }
+        
+        .process-step {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        
+        .process-step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-gold);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .process-step h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .process-step p {
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        /* Responsive adjustments for process section */
+        @media (max-width: 768px) {
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .process-step {
+                padding: 1.5rem;
+            }
+            
+            .process-section .section-header {
+                margin-bottom: 1.5rem !important;
+            }
+        }
         .services-hero {
             background: var(--dark);
             color: var(--white);
@@ -483,6 +568,34 @@
         </div>
     </section>
 
+    <!-- Nonprofit Salesforce Solutions -->
+    <section id="nonprofit-solutions" class="service-detail">
+        <div class="container">
+            <div class="service-detail-content">
+                <div class="service-detail-text">
+                    <h2>Nonprofit Salesforce Solutions</h2>
+                    <p>Specialized Salesforce solutions designed specifically for nonprofit organizations, including NPSP (Nonprofit Success Pack) implementation, donor management, volunteer coordination, and program tracking.</p>
+                    <ul class="service-features-list">
+                        <li>NPSP (Nonprofit Success Pack) implementation</li>
+                        <li>Donor management and fundraising automation</li>
+                        <li>Volunteer coordination and management</li>
+                        <li>Program and grant tracking systems</li>
+                        <li>Constituent relationship management</li>
+                        <li>Event management and registration</li>
+                        <li>Reporting and analytics for nonprofits</li>
+                        <li>Integration with fundraising platforms</li>
+                    </ul>
+                    <div style="margin-top: 2rem;">
+                        <a href="contact.html" class="btn-primary">Get Nonprofit Assessment</a>
+                    </div>
+                </div>
+                <div class="service-image">
+                    <img src="assets/SalesforceConsultants-Graphic.png" alt="Nonprofit Salesforce Solutions">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Our Process -->
     <section id="process" class="process-section">
         <div class="container">
@@ -548,12 +661,12 @@
                 <div class="footer-section">
                     <h3>Salesforce Services</h3>
                     <ul>
-                        <li><a href="services.html">Salesforce Implementation</a></li>
-                        <li><a href="services.html">Custom Salesforce Development</a></li>
-                        <li><a href="services.html">Salesforce Training & Certification</a></li>
-                        <li><a href="services.html">Salesforce System Integration</a></li>
-                        <li><a href="services.html">Salesforce AI & Automation</a></li>
-                        <li><a href="services.html">Nonprofit Salesforce Solutions</a></li>
+                        <li><a href="#implementation">Salesforce Implementation</a></li>
+                        <li><a href="#custom-development">Custom Salesforce Development</a></li>
+                        <li><a href="#training">Salesforce Training & Certification</a></li>
+                        <li><a href="#integrations">Salesforce System Integration</a></li>
+                        <li><a href="#automation">Salesforce AI & Automation</a></li>
+                        <li><a href="#nonprofit-solutions">Nonprofit Salesforce Solutions</a></li>
                     </ul>
                 </div>
                 
