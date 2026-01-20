@@ -1129,9 +1129,9 @@ function lazyLoadImages() {
 // Performance optimization: Preload critical images
 function preloadCriticalImages() {
     const criticalImages = [
-        'assets/logos/Salesforce_Consulting_Logo.svg',
-        'assets/Jason Fletcher Profile.JPG',
-        'assets/Shayne Roy Profile.png'
+        '/assets/logos/Salesforce_Consulting_Logo.svg',
+        '/assets/Jason Fletcher Profile.JPG',
+        '/assets/Shayne Roy Profile.png'
     ];
     
     criticalImages.forEach(src => {
@@ -1256,11 +1256,11 @@ function initializeBioModal() {
     });
 }
 
-// Exit Intent Popup System
+// Exit Intent Popup System - Module-level variables for scope
+let hasShownPopup = false;
+let isPopupVisible = false;
+
 function initializeExitIntentPopup() {
-    let hasShownPopup = false;
-    let isPopupVisible = false;
-    
     // Create popup HTML
     const popupHTML = `
         <div id="exitIntentPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000;">
@@ -1270,7 +1270,7 @@ function initializeExitIntentPopup() {
                 <h3 style="color: #3AAEAA; margin-bottom: 1rem; font-size: 1.5rem;">Wait! Get Your Free Salesforce Assessment</h3>
                 <p style="color: #5a6c7d; margin-bottom: 1.5rem; line-height: 1.6;">Don't miss out on optimizing your Salesforce investment. Get a free assessment worth $500 and discover how to improve your ROI by 40%.</p>
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="contact.html" style="background: #3AAEAA; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease;">Get Free Assessment</a>
+                    <a href="/contact/" style="background: #3AAEAA; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease;">Get Free Assessment</a>
                     <button onclick="closeExitIntentPopup()" style="background: #f8f9fa; color: #5a6c7d; padding: 12px 24px; border: 1px solid #dee2e6; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Maybe Later</button>
                 </div>
             </div>
