@@ -11,8 +11,8 @@
         <priority>1.0</priority>
         <image:image>
             <image:loc>https://salesforceconsultants.io/assets/SalesforceConsultants-Graphic.png</image:loc>
-            <image:title>Salesforce Consulting Services - Utah & California</image:title>
-            <image:caption>Expert Salesforce implementation, training, and development services in Utah, California, and surrounding areas</image:caption>
+            <image:title>Salesforce Consulting Services - California, Missouri, Kansas & Rocky Mountain Region</image:title>
+            <image:caption>Expert Salesforce implementation, training, and development services in California, Missouri, Kansas, and Rocky Mountain Region</image:caption>
         </image:image>
     </url>
     
@@ -130,6 +130,28 @@
     
     <url>
         <loc>https://salesforceconsultants.io/salesforce-success-stories-case-studies</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Regional Pages -->
+    <url>
+        <loc>https://salesforceconsultants.io/rocky-mountain/region/</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://salesforceconsultants.io/california/region/</loc>
+        <lastmod>2025-01-28</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>https://salesforceconsultants.io/midwest/region/</loc>
         <lastmod>2025-01-28</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
