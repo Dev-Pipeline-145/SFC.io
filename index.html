@@ -464,9 +464,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- Google Tag Manager (noscript) - REMOVED: GTM not configured, using GA4 directly -->
+    <!-- If GTM is needed, add proper GTM container code in <head> and uncomment below -->
+    <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
     
     <!-- Header -->
     <header>
@@ -1954,19 +1955,11 @@
         'content_group2': 'local_services'
       });
       
-      // Enhanced local SEO tracking
-      gtag('event', 'page_view', {
-        'custom_parameter_1': 'salesforce_consulting',
-        'custom_parameter_2': 'homepage',
-        'custom_parameter_3': 'utah_california',
-        'custom_parameter_4': 'western_us'
-      });
+      // Note: page_view is automatically sent by gtag('config') above
+      // No need to manually send page_view event
       
-      // Track local search intent
-      gtag('event', 'search', {
-        'search_term': 'salesforce consultant utah',
-        'event_category': 'local_search'
-      });
+      // Search event tracking moved to search functionality
+      // Only fires when user actually performs a search
       
       // Enhanced conversion tracking for local leads
       document.addEventListener('DOMContentLoaded', function() {

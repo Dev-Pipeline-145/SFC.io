@@ -686,6 +686,15 @@ function performSearch() {
         return;
     }
     
+    // Track search event in Google Analytics
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'search', {
+            'search_term': query,
+            'event_category': 'site_search',
+            'event_label': 'internal_search'
+        });
+    }
+    
     const results = searchData.filter(item => {
         const searchText = `${item.title} ${item.content} ${item.tags.join(' ')}`.toLowerCase();
         const matches = searchText.includes(query);
