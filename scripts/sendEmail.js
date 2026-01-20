@@ -83,6 +83,26 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(async (response) => {
         const result = await response.json();
         if (response.ok) {
+          // Track successful form submission in Google Analytics
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'form_submit', {
+              'event_category': 'conversion',
+              'event_label': 'contact_form_success',
+              'value': 1,
+              'custom_parameter_3': 'usa_canada_europe',
+              'custom_parameter_4': 'california_missouri_kansas_rocky_mountain_region',
+              'conversion': true,
+              'engagement_time_msec': 1
+            });
+            // Track as conversion event
+            gtag('event', 'generate_lead', {
+              'event_category': 'conversion',
+              'event_label': 'contact_form_lead',
+              'value': 1,
+              'currency': 'USD',
+              'custom_parameter_3': 'usa_canada_europe'
+            });
+          }
           displayToast(
             result.MESSAGE || "Message sent successfully!",
             "success"

@@ -691,7 +691,10 @@ function performSearch() {
         gtag('event', 'search', {
             'search_term': query,
             'event_category': 'site_search',
-            'event_label': 'internal_search'
+            'event_label': 'internal_search',
+            'value': 1,
+            'custom_parameter_3': 'usa_canada_europe',
+            'custom_parameter_4': 'california_missouri_kansas_rocky_mountain_region'
         });
     }
     
@@ -1310,6 +1313,12 @@ function showExitIntentPopup() {
         // Track conversion
         if (typeof gtag !== 'undefined') {
             gtag('event', 'exit_intent_popup_shown', {
+              'event_category': 'engagement',
+              'event_label': 'exit_intent',
+              'value': 1,
+              'custom_parameter_3': 'usa_canada_europe',
+              'custom_parameter_4': 'california_missouri_kansas_rocky_mountain_region'
+            });
                 'event_category': 'engagement',
                 'event_label': 'exit_intent_popup'
             });

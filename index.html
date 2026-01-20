@@ -2036,22 +2036,34 @@
         'cookie_domain': 'salesforceconsultants.io',
         'cookie_expires': 365 * 24 * 60 * 60,
         'send_page_view': true,
+        'allow_google_signals': true,
+        'allow_ad_personalization_signals': true,
         'custom_map': {
           'custom_parameter_1': 'service_type',
           'custom_parameter_2': 'page_section',
           'custom_parameter_3': 'location',
-          'custom_parameter_4': 'service_area'
+          'custom_parameter_4': 'service_area',
+          'custom_parameter_5': 'region',
+          'custom_parameter_6': 'country'
         },
         'user_properties': {
-          'service_area': 'california_missouri_kansas_rocky_mountain_region',
+          'service_area': 'usa_canada_europe',
           'business_type': 'salesforce_consulting',
           'stream_id': '11848780982',
-          'primary_location': 'california',
-          'secondary_locations': 'missouri_kansas_rocky_mountain'
+          'primary_location': 'usa',
+          'secondary_locations': 'canada_europe',
+          'target_regions': 'usa_canada_europe',
+          'excluded_regions': 'russia_india_china',
+          'usa_regions': 'california_missouri_kansas_rocky_mountain',
+          'service_countries': 'united_states_canada_europe'
         },
         'site_section': 'homepage',
         'content_group1': 'salesforce_consulting',
-        'content_group2': 'local_services'
+        'content_group2': 'local_services',
+        'content_group3': 'usa_canada_europe',
+        'page_location': window.location.href,
+        'page_title': document.title,
+        'page_path': window.location.pathname
       });
       
       // Note: page_view is automatically sent by gtag('config') above
@@ -2068,7 +2080,11 @@
             gtag('event', 'form_submit', {
               'event_category': 'engagement',
               'event_label': 'contact_form',
-              'custom_parameter_3': 'california_missouri_kansas_rocky_mountain_region'
+              'value': 1,
+              'custom_parameter_3': 'usa_canada_europe',
+              'custom_parameter_4': 'california_missouri_kansas_rocky_mountain_region',
+              'custom_parameter_6': 'united_states',
+              'engagement_time_msec': 1
             });
           });
         });
@@ -2081,7 +2097,10 @@
               'event_category': 'engagement',
               'event_label': 'cta_click',
               'value': 1,
-              'custom_parameter_3': 'california_missouri_kansas_rocky_mountain_region'
+              'custom_parameter_3': 'usa_canada_europe',
+              'custom_parameter_4': 'california_missouri_kansas_rocky_mountain_region',
+              'link_url': this.href || this.getAttribute('href') || 'unknown',
+              'link_text': this.textContent.trim() || 'CTA Button'
             });
           });
         });
@@ -2093,8 +2112,79 @@
             gtag('event', 'phone_call', {
               'event_category': 'engagement',
               'event_label': 'phone_click',
-              'value': 1
+              'value': 1,
+              'custom_parameter_3': 'usa_canada_europe',
+              'phone_number': this.href.replace('tel:', '') || '385-309-0807',
+              'conversion': true
             });
+          });
+        });
+        
+        // Track scroll depth (25%, 50%, 75%, 100%)
+        let scrollDepthTracked = { 25: false, 50: false, 75: false, 100: false };
+        window.addEventListener('scroll', function() {
+          const scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+          [25, 50, 75, 100].forEach(depth => {
+            if (scrollPercent >= depth && !scrollDepthTracked[depth]) {
+              scrollDepthTracked[depth] = true;
+              if (typeof gtag !== 'undefined') {
+                gtag('event', 'scroll', {
+                  'event_category': 'engagement',
+                  'event_label': 'scroll_depth_' + depth + '_percent',
+                  'value': depth,
+                  'custom_parameter_3': 'usa_canada_europe'
+                });
+              }
+            }
+          });
+        });
+        
+        // Track time on page (30s, 60s, 120s)
+        let timeOnPageTracked = { 30: false, 60: false, 120: false };
+        setTimeout(() => {
+          [30, 60, 120].forEach(seconds => {
+            setTimeout(() => {
+              if (!timeOnPageTracked[seconds] && typeof gtag !== 'undefined') {
+                timeOnPageTracked[seconds] = true;
+                gtag('event', 'timing_complete', {
+                  'name': 'time_on_page',
+                  'value': seconds,
+                  'event_category': 'engagement',
+                  'event_label': seconds + '_seconds',
+                  'custom_parameter_3': 'usa_canada_europe'
+                });
+              }
+            }, seconds * 1000);
+          });
+        }, 0);
+        
+        // Track external link clicks
+        const externalLinks = document.querySelectorAll('a[href^="http"]:not([href*="salesforceconsultants.io"]):not([href*="devpipeline.com"])');
+        externalLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'click', {
+                'event_category': 'outbound',
+                'event_label': this.href,
+                'transport_type': 'beacon',
+                'custom_parameter_3': 'usa_canada_europe'
+              });
+            }
+          });
+        });
+        
+        // Track file downloads
+        const downloadLinks = document.querySelectorAll('a[href$=".pdf"], a[href$=".doc"], a[href$=".docx"], a[href$=".xls"], a[href$=".xlsx"]');
+        downloadLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'file_download', {
+                'event_category': 'download',
+                'event_label': this.href.split('/').pop(),
+                'file_extension': this.href.split('.').pop(),
+                'custom_parameter_3': 'usa_canada_europe'
+              });
+            }
           });
         });
       });
