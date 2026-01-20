@@ -1,0 +1,32 @@
+# Cloudflare Pages Redirects
+# Format: [source] [destination] [status_code]
+# Status codes: 200 = rewrite (URL stays same), 301/302 = redirect (URL changes)
+
+# SEO-friendly URL rewrites (200 = rewrite, serve content but keep URL)
+/salesforce-clients-partners /clients.html 200
+/salesforce-consulting-services /services.html 200
+/contact-salesforce-consultants /contact.html 200
+/salesforce-faq-questions /faq.html 200
+/salesforce-expertise-certifications /expertise.html 200
+/salesforce-success-stories-case-studies /success-stories.html 200
+/salesforce-implementation-recovery /services/implementation-recovery.html 200
+
+# 301 Redirects for old URLs (permanent redirect to SEO-friendly URLs)
+/clients.html /salesforce-clients-partners 301
+/services.html /salesforce-consulting-services 301
+/contact.html /contact-salesforce-consultants 301
+/faq.html /salesforce-faq-questions 301
+/expertise.html /salesforce-expertise-certifications 301
+/success-stories.html /salesforce-success-stories-case-studies 301
+
+# Regional pages (if needed)
+/utah/region/ /utah/region/index.html 200
+/california/region/ /california/region/index.html 200
+/midwest/region/ /midwest/region/index.html 200
+/surrounding-states/region/ /surrounding-states/region/index.html 200
+
+# Business page
+/business/ /business/index.html 200
+
+# Fallback for SPA routing (if needed)
+# /* /index.html 200

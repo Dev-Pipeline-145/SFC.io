@@ -25,12 +25,18 @@ img {
 }
 
 /* Optimize fonts for performance - Use system fonts as fallback */
+/* Oceanwide Pro font - FIXME: Add font files to assets directory
 @font-face {
     font-family: 'Oceanwide Pro';
     font-display: swap;
-    /* Fallback to system fonts if Oceanwide Pro is not available */
-    font-display: fallback;
+    src: url('/assets/fonts/oceanwide-pro.woff2') format('woff2'),
+         url('/assets/fonts/oceanwide-pro.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
+*/
+
+/* Using system fonts until Oceanwide Pro font files are added */
 
 /* Performance optimizations for better Lighthouse scores */
 /* Reduce layout shifts */

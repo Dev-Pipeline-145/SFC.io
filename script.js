@@ -154,11 +154,7 @@ function initializeSite() {
     // Initialize lazy loading
     lazyLoadImages();
     
-    // Initialize form validation
-    validateForm();
-    
-    // Initialize form handling
-    initializeFormHandling();
+    // Form handling is done by scripts/sendEmail.js - do not interfere
     
     // Initialize smooth scrolling
     initializeSmoothScrolling();
@@ -178,9 +174,7 @@ function initializeSite() {
     // Initialize exit intent popup
     initializeExitIntentPopup();
     
-    // Set up periodic color fixing (reduced frequency to prevent styling conflicts)
-    setTimeout(fixAllColorContrastIssues, 2000);
-    setInterval(fixAllColorContrastIssues, 10000);
+    // Color contrast fixing runs once on page load (removed periodic calls for performance)
     
     console.log('✅ Site initialization complete');
 }
@@ -692,6 +686,15 @@ function performSearch() {
         return;
     }
     
+    // Track search event in Google Analytics
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'search', {
+            'search_term': query,
+            'event_category': 'site_search',
+            'event_label': 'internal_search'
+        });
+    }
+    
     const results = searchData.filter(item => {
         const searchText = `${item.title} ${item.content} ${item.tags.join(' ')}`.toLowerCase();
         const matches = searchText.includes(query);
@@ -910,44 +913,9 @@ function initializeAnimations() {
     });
 }
 
-// Form Handling
-function initializeFormHandling() {
-    const contactForm = document.getElementById('contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            
-            // Show loading state
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            // Simulate form submission (replace with actual Formspree handling)
-            setTimeout(() => {
-                // Show success message
-                showNotification('Thank you! Your Salesforce assessment request has been sent. We\'ll contact you soon.', 'success');
-                
-                // Reset form
-                this.reset();
-                
-                // Reset button
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                
-                // Scroll to top
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            }, 2000);
-        });
-    }
-}
+// Form Handling - REMOVED
+// Form handling is now done by scripts/sendEmail.js which properly submits to Flask API
+// This function was a mock implementation that prevented actual form submission
 
 // Notification system
 function showNotification(message, type = 'info') {
@@ -1125,44 +1093,9 @@ function handleMobileMenu() {
 
 
 
-// Form Validation
-function validateForm() {
-    const requiredFields = document.querySelectorAll('input[required], select[required], textarea[required]');
-    let isValid = true;
-    
-    requiredFields.forEach(field => {
-        if (!field.value.trim()) {
-            field.style.borderColor = 'var(--accent-red)';
-            isValid = false;
-        } else {
-            field.style.borderColor = 'var(--light-gray)';
-        }
-    });
-    
-    // Email validation
-    const emailField = document.getElementById('email');
-    if (emailField && emailField.value) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(emailField.value)) {
-            emailField.style.borderColor = 'var(--accent-red)';
-            isValid = false;
-        }
-    }
-    
-    return isValid;
-}
-
-function initializeFormValidation() {
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            if (!validateForm()) {
-                e.preventDefault();
-                showNotification('Please fill in all required fields correctly.', 'error');
-            }
-        });
-    }
-}
+// Form Validation - REMOVED
+// Form validation is now handled by scripts/sendEmail.js which has complete validation
+// including email, phone, and required field validation with proper error handling
 
 // Enhanced Lazy Loading for Images
 function lazyLoadImages() {
