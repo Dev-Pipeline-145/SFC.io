@@ -102,7 +102,8 @@
     color: var(--text-on-dark);
 }
 
-/* ===== FOOTER COMPONENT ===== */
+/* ===== FOOTER COMPONENT (Site-Wide) ===== */
+footer,
 .footer-component {
     background: var(--dark);
     color: var(--text-on-dark);
@@ -110,6 +111,7 @@
     margin-top: 4rem;
 }
 
+.footer-content,
 .footer-component .footer-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -117,19 +119,19 @@
     margin-bottom: 1.5rem;
 }
 
-.footer-component .footer-section {
+.footer-section {
     padding: 0;
 }
 
-.footer-component .footer-section h3 {
+.footer-section h3 {
     color: var(--teal);
     font-size: 1rem;
     font-weight: 700;
     margin-bottom: 0.75rem;
 }
 
-.footer-component .footer-section p,
-.footer-component .footer-section li {
+.footer-section p,
+.footer-section li {
     font-size: 0.875rem;
     line-height: 1.6;
     color: var(--text-on-dark);
@@ -137,24 +139,50 @@
     margin-bottom: 0.5rem;
 }
 
-.footer-component .footer-section a {
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
     color: var(--text-on-dark);
     text-decoration: none;
     opacity: 0.85;
     transition: var(--transition);
 }
 
-.footer-component .footer-section a:hover {
+.footer-section a:hover {
     color: var(--teal);
     opacity: 1;
 }
 
-.footer-component .footer-bottom {
+.footer-bottom {
     border-top: 1px solid rgba(255,255,255,0.15);
     padding-top: 1rem;
     text-align: center;
     font-size: 0.8rem;
     opacity: 0.8;
+}
+
+.footer-bottom p {
+    margin: 0.5rem 0;
+    font-size: 0.8rem;
+}
+
+.footer-bottom a {
+    color: var(--accent-gold);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.footer-bottom a:hover {
+    color: var(--teal);
+    text-decoration: underline;
 }
 
 /* ===== IMAGE COMPONENTS ===== */
@@ -213,12 +241,24 @@
         padding: 3rem 0;
     }
     
+    footer,
     .footer-component {
         padding: 2rem 0 1rem;
     }
     
+    .footer-content,
     .footer-component .footer-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+    
+    .footer-section h3 {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .footer-section p,
+    .footer-section li {
+        font-size: 0.8rem;
     }
 }

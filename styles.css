@@ -1595,19 +1595,23 @@ header {
     animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
-/* Enhanced Footer - Compact & Better Organized */
-footer {
+/* Enhanced Footer - Compact & Better Organized (Site-Wide) */
+/* Note: Footer styles are now unified in components.css */
+/* This ensures consistent footer styling across all pages */
+footer,
+.footer-component {
     background: var(--dark);
     color: var(--text-on-dark);
-    padding: 3rem 0 2rem;
+    padding: 2.5rem 0 1.5rem;
     margin-top: 4rem;
 }
 
-.footer-content {
+.footer-content,
+.footer-component .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2.5rem;
-    margin-bottom: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .footer-section {
@@ -1616,8 +1620,8 @@ footer {
 
 .footer-section h3 {
     color: var(--teal);
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
     text-transform: none;
     letter-spacing: 0.5px;
     font-weight: 700;
@@ -1625,9 +1629,9 @@ footer {
 
 .footer-section p {
     color: var(--text-on-dark);
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     line-height: 1.6;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     opacity: 0.9;
 }
 
@@ -1638,14 +1642,14 @@ footer {
 }
 
 .footer-section ul li {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
 }
 
 .footer-section ul li a {
     color: var(--text-on-dark);
     text-decoration: none;
     transition: var(--transition);
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     padding: 0.25rem 0;
     display: inline-block;
     opacity: 0.85;
@@ -1659,16 +1663,16 @@ footer {
 
 .footer-bottom {
     border-top: 1px solid rgba(255,255,255,0.15);
-    padding-top: 1.5rem;
+    padding-top: 1rem;
     text-align: center;
     color: var(--text-on-dark);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     opacity: 0.8;
 }
 
 .footer-bottom p {
     margin: 0.5rem 0;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
 }
 
 .footer-bottom a {
