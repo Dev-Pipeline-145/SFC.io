@@ -1,0 +1,53 @@
+# Jekyll Configuration for GitHub Pages
+# This removes .html extensions from URLs and enables clean URLs
+
+# Site settings
+title: "SalesforceConsultants.io"
+description: "Expert Salesforce consulting services for California, Missouri, Kansas, and Utah"
+url: "https://salesforceconsultants.io"
+baseurl: ""
+
+# Build settings
+plugins:
+  - jekyll-redirect-from
+  - jekyll-sitemap
+
+# Permalink settings - Remove .html extensions
+permalink: pretty  # This makes /about.html accessible as /about/
+permalink: /:title/  # Alternative: makes /about.html accessible as /about/
+
+# Exclude files from processing (keep static files as-is)
+exclude:
+  - node_modules
+  - .git
+  - .gitignore
+  - README.md
+  - PROJECT_PLAN.md
+  - QA_CHECKLIST.md
+  - QA_PLAN.md
+  - QA_FINDINGS_REPORT.md
+  - AUDIT_REPORT.md
+  - CONFLICTS_AND_REDUNDANCIES.md
+  - CRITICAL_FIXES.md
+  - SEO_AND_ANALYTICS_AUDIT.md
+  - TESTING_REPORT.md
+  - TEST_RESULTS.md
+  - PRE_MERGE_TESTING.md
+  - TAGGING_AND_LABELING_STRATEGY.md
+  - GITHUB_PAGES_SETUP.md
+  - GITHUB_PAGES_REDIRECTS.md
+  - CLOUDFLARE_PAGES_SETUP.md
+  - CLOUDFLARE_FIX_INSTRUCTIONS.md
+
+# Markdown settings
+markdown: kramdown
+highlighter: rouge
+
+# Pagination (if needed)
+paginate: 10
+paginate_path: "/blog/page:num/"
+
+# Collections (if needed)
+collections:
+  services:
+    output: true
