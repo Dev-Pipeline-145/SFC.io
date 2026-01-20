@@ -1,0 +1,15 @@
+{
+  "name": "sfc-io",
+  "version": "1.0.0",
+  "description": "SalesforceConsultants.io website",
+  "scripts": {
+    "lint": "eslint script.js scripts/*.js",
+    "lint:fix": "eslint --fix script.js scripts/*.js"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

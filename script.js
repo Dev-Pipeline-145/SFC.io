@@ -1328,6 +1328,7 @@ function closeExitIntentPopup() {
 // Export functions for global access (if needed)
 window.toggleMobileMenu = toggleMobileMenu;
 window.showNotification = showNotification;
+window.closeExitIntentPopup = closeExitIntentPopup;
 window.openSearchModal = openSearchModal;
 window.closeSearchModal = closeSearchModal;
 window.openBioModal = openBioModal;

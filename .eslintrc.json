@@ -1,0 +1,25 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": "eslint:recommended",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "script"
+  },
+  "rules": {
+    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "no-undef": "error",
+    "no-redeclare": "error",
+    "no-unused-expressions": "warn",
+    "no-console": "off"
+  },
+  "globals": {
+    "gtag": "readonly",
+    "dataLayer": "readonly",
+    "toggleMobileMenu": "readonly",
+    "showNotification": "readonly",
+    "closeExitIntentPopup": "readonly"
+  }
+}
