@@ -30,13 +30,16 @@
 ```
 
 **Action Items**:
-- [ ] Locate Oceanwide Pro font files
-- [ ] Add `src` property to `@font-face`
-- [ ] Remove duplicate `font-display: fallback`
+- [x] Remove broken `@font-face` declaration
+- [x] Remove duplicate `font-display: fallback`
+- [x] Comment out font-face until font files are added
+- [ ] Locate Oceanwide Pro font files and add to assets
+- [ ] Uncomment and fix `@font-face` with proper `src`
 - [ ] Test font loading
 - [ ] Verify text renders correctly
 
-**Estimated Time**: 30 minutes
+**Status**: ✅ **FIXED** - Font-face commented out, using system font fallbacks
+**Estimated Time**: 30 minutes (15 min done, 15 min remaining for font files)
 
 ---
 
@@ -72,12 +75,15 @@ function initializeSite() {
 ```
 
 **Action Items**:
-- [ ] Remove `initializeFormHandling()` function
-- [ ] Remove calls from `initializeSite()`
+- [x] Remove `initializeFormHandling()` function
+- [x] Remove `initializeFormValidation()` function
+- [x] Remove `validateForm()` function
+- [x] Remove calls from `initializeSite()`
 - [ ] Test form submission on contact page
 - [ ] Verify only `sendEmail.js` handles form
 
-**Estimated Time**: 15 minutes
+**Status**: ✅ **FIXED** - Conflicting handlers removed
+**Estimated Time**: 15 minutes (done)
 
 ---
 
@@ -99,12 +105,13 @@ function initializeSite() {
 ```
 
 **Action Items**:
-- [ ] Decide: Match versions OR remove preload
-- [ ] Update preload URLs to match actual load URLs
+- [x] Remove preload for styles.css and script.js (version mismatch)
+- [x] Keep preload for images (no version conflict)
 - [ ] Test page load performance
 - [ ] Verify no console warnings
 
-**Estimated Time**: 10 minutes
+**Status**: ✅ **FIXED** - Preload removed for conflicting resources
+**Estimated Time**: 10 minutes (done)
 
 ---
 
@@ -128,12 +135,13 @@ fixAllColorContrastIssues();  // Run once on page load
 ```
 
 **Action Items**:
-- [ ] Remove setTimeout call (line 182)
-- [ ] Remove setInterval call (line 183)
+- [x] Remove setTimeout call (line 182)
+- [x] Remove setInterval call (line 183)
 - [ ] Test page rendering
 - [ ] Verify color contrast still works
 
-**Estimated Time**: 5 minutes
+**Status**: ✅ **FIXED** - Redundant calls removed
+**Estimated Time**: 5 minutes (done)
 
 ---
 
@@ -151,11 +159,12 @@ fixAllColorContrastIssues();  // Run once on page load
 ```
 
 **Action Items**:
-- [ ] Review if validation needed in sendEmail.js
-- [ ] Remove `initializeFormValidation()` if redundant
-- [ ] Or integrate validation into sendEmail.js
+- [x] Review validation - sendEmail.js handles all validation
+- [x] Remove `initializeFormValidation()` function
+- [x] Remove `validateForm()` function
 
-**Estimated Time**: 10 minutes
+**Status**: ✅ **FIXED** - Unused validation code removed (handled by sendEmail.js)
+**Estimated Time**: 10 minutes (done)
 
 ---
 
