@@ -109,6 +109,50 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://salesforceconsultants.io/">
     
+    <!-- Google Analytics 4 - CRITICAL: Must be in <head> for proper tracking -->
+    <!-- Stream: salesforceconsultants.io | Stream ID: 11848780982 | Measurement ID: G-8ZNLKDLFEC -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZNLKDLFEC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8ZNLKDLFEC', {
+        'anonymize_ip': true,
+        'cookie_flags': 'SameSite=None;Secure',
+        'cookie_domain': 'salesforceconsultants.io',
+        'cookie_expires': 365 * 24 * 60 * 60,
+        'send_page_view': true,
+        'allow_google_signals': true,
+        'allow_ad_personalization_signals': true,
+        'custom_map': {
+          'custom_parameter_1': 'service_type',
+          'custom_parameter_2': 'page_section',
+          'custom_parameter_3': 'location',
+          'custom_parameter_4': 'service_area',
+          'custom_parameter_5': 'region',
+          'custom_parameter_6': 'country'
+        },
+        'user_properties': {
+          'service_area': 'usa_canada_europe',
+          'business_type': 'salesforce_consulting',
+          'stream_id': '11848780982',
+          'primary_location': 'usa',
+          'secondary_locations': 'canada_europe',
+          'target_regions': 'usa_canada_europe',
+          'excluded_regions': 'russia_india_china',
+          'usa_regions': 'california_missouri_kansas_rocky_mountain',
+          'service_countries': 'united_states_canada_europe'
+        },
+        'site_section': 'homepage',
+        'content_group1': 'salesforce_consulting',
+        'content_group2': 'local_services',
+        'content_group3': 'usa_canada_europe',
+        'page_location': window.location.href,
+        'page_title': document.title,
+        'page_path': window.location.pathname
+      });
+    </script>
+    
     <!-- Performance Optimizations -->
     <link rel="dns-prefetch" href="//www.google-analytics.com">
     <link rel="dns-prefetch" href="//www.googletagmanager.com">
@@ -1991,56 +2035,9 @@
         </div>
     </div>
 
-    <!-- Google Analytics 4 - Enhanced Local SEO Configuration -->
-    <!-- Stream: salesforceconsultants.io | Stream ID: 11848780982 | Measurement ID: G-8ZNLKDLFEC -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZNLKDLFEC"></script>
+    <!-- Note: GA4 script moved to <head> section for proper tracking (was incorrectly in body) -->
+    <!-- Enhanced conversion tracking for local leads -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-8ZNLKDLFEC', {
-        'anonymize_ip': true,
-        'cookie_flags': 'SameSite=None;Secure',
-        'cookie_domain': 'salesforceconsultants.io',
-        'cookie_expires': 365 * 24 * 60 * 60,
-        'send_page_view': true,
-        'allow_google_signals': true,
-        'allow_ad_personalization_signals': true,
-        'custom_map': {
-          'custom_parameter_1': 'service_type',
-          'custom_parameter_2': 'page_section',
-          'custom_parameter_3': 'location',
-          'custom_parameter_4': 'service_area',
-          'custom_parameter_5': 'region',
-          'custom_parameter_6': 'country'
-        },
-        'user_properties': {
-          'service_area': 'usa_canada_europe',
-          'business_type': 'salesforce_consulting',
-          'stream_id': '11848780982',
-          'primary_location': 'usa',
-          'secondary_locations': 'canada_europe',
-          'target_regions': 'usa_canada_europe',
-          'excluded_regions': 'russia_india_china',
-          'usa_regions': 'california_missouri_kansas_rocky_mountain',
-          'service_countries': 'united_states_canada_europe'
-        },
-        'site_section': 'homepage',
-        'content_group1': 'salesforce_consulting',
-        'content_group2': 'local_services',
-        'content_group3': 'usa_canada_europe',
-        'page_location': window.location.href,
-        'page_title': document.title,
-        'page_path': window.location.pathname
-      });
-      
-      // Note: page_view is automatically sent by gtag('config') above
-      // No need to manually send page_view event
-      
-      // Search event tracking moved to search functionality
-      // Only fires when user actually performs a search
-      
-      // Enhanced conversion tracking for local leads
       document.addEventListener('DOMContentLoaded', function() {
         const forms = document.querySelectorAll('form');
         forms.forEach(form => {
