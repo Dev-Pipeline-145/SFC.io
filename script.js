@@ -815,22 +815,6 @@ document.addEventListener('click', function(event) {
     }
 });
 
-// Read more toggle function
-function toggleReadMore() {
-    const expandedContent = document.getElementById('expandedContent');
-    const readMoreBtn = document.querySelector('.read-more-btn');
-    
-    if (expandedContent && readMoreBtn) {
-        if (expandedContent.style.display === 'none') {
-            expandedContent.style.display = 'block';
-            readMoreBtn.textContent = 'Read Less';
-        } else {
-            expandedContent.style.display = 'none';
-            readMoreBtn.textContent = 'Read More';
-        }
-    }
-}
-
 // Smooth scrolling for anchor links
 function initializeSmoothScrolling() {
     const links = document.querySelectorAll('a[href^="#"]');
@@ -1047,9 +1031,6 @@ function initializeStatsObserver() {
 
 // Mobile Menu Responsive Behavior
 function handleMobileMenu() {
-    const navMenu = document.getElementById('nav-menu');
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-    
     // Add mobile menu styles if not already present
     if (!document.getElementById('mobile-menu-styles')) {
         const mobileStyles = `
@@ -1105,7 +1086,7 @@ function lazyLoadImages() {
     const images = document.querySelectorAll('img[data-src]');
     
     if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
+    const imageObserver = new IntersectionObserver((entries, _observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const img = entry.target;
@@ -1319,9 +1300,6 @@ function showExitIntentPopup() {
               'custom_parameter_3': 'usa_canada_europe',
               'custom_parameter_4': 'california_missouri_kansas_rocky_mountain_region'
             });
-                'event_category': 'engagement',
-                'event_label': 'exit_intent_popup'
-            });
         }
     }
 }
@@ -1342,6 +1320,7 @@ window.openSearchModal = openSearchModal;
 window.closeSearchModal = closeSearchModal;
 window.openBioModal = openBioModal;
 window.closeBioModal = closeBioModal;
-window.closeExitIntentPopup = closeExitIntentPopup;
+window.toggleShareDropdown = toggleShareDropdown;
+window.copyToClipboard = copyToClipboard;
 
  

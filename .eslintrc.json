@@ -17,9 +17,6 @@
   },
   "globals": {
     "gtag": "readonly",
-    "dataLayer": "readonly",
-    "toggleMobileMenu": "readonly",
-    "showNotification": "readonly",
-    "closeExitIntentPopup": "readonly"
+    "dataLayer": "readonly"
   }
 }

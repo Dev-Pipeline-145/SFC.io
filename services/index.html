@@ -62,7 +62,7 @@
     <!-- Oceanwide Pro Font -->
     
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="/styles.css?v=2024.1.24">
+    <link rel="stylesheet" href="/styles.css?v=2025.1.21">
     <link rel="stylesheet" href="/components.css?v=2025.1.20">
     
     <!-- Additional styles for services page -->
@@ -70,10 +70,10 @@
         .services-hero {
             background: var(--dark);
             color: var(--white);
-            padding: 120px 0 80px;
+            padding: 120px 0 var(--spacing-xl);
             position: relative;
             overflow: hidden;
-            min-height: 80vh;
+            min-height: auto;
             display: flex;
             align-items: center;
         }
@@ -92,7 +92,7 @@
         .services-hero-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 6rem;
+            gap: var(--gap-xl);
             align-items: center;
             max-width: 100%;
             margin: 0 auto;
@@ -123,7 +123,7 @@
         
         .services-hero h1 {
             font-size: clamp(3rem, 8vw, 6rem);
-            margin-bottom: 2rem;
+            margin-bottom: var(--margin-lg);
             color: var(--white);
             line-height: 0.9;
             font-weight: 700;
@@ -134,7 +134,7 @@
         
         .services-hero p {
             font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-            margin-bottom: 3rem;
+            margin-bottom: var(--margin-xl);
             color: rgba(255,255,255,0.9);
             line-height: 1.4;
             font-weight: 400;
@@ -142,7 +142,7 @@
         }
         
         .service-detail {
-            padding: 6rem 0;
+            padding: var(--section-padding-md);
         }
         
         .service-detail:nth-child(even) {
@@ -152,7 +152,7 @@
         .service-detail-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 6rem;
+            gap: var(--gap-xl);
             align-items: center;
             max-width: 100%;
             margin: 0 auto;
@@ -189,7 +189,7 @@
         
         .service-detail-text h2 {
             color: var(--dark);
-            margin-bottom: 2rem;
+            margin-bottom: var(--margin-lg);
             font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 700;
             text-transform: none;
@@ -198,14 +198,14 @@
         
         .service-detail-text p {
             font-size: clamp(1.1rem, 2vw, 1.4rem);
-            margin-bottom: 2rem;
+            margin-bottom: var(--margin-lg);
             color: #7f8c8d;
             line-height: 1.6;
         }
         
         .service-features-list {
             list-style: none;
-            margin-top: 2rem;
+            margin-top: var(--margin-lg);
         }
         
         .service-features-list li {
@@ -254,7 +254,7 @@
             
             .services-hero-container {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: var(--gap-xl);
                 padding: 0 3vw;
             }
             
@@ -265,7 +265,7 @@
             
             .service-detail-content {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: var(--gap-xl);
                 padding: 0 3vw;
             }
         }
@@ -369,7 +369,7 @@
                         <li>Custom reporting and analytics solutions</li>
                         <li>Mobile app development for Salesforce</li>
                     </ul>
-                    <div style="margin-top: 2rem;">
+                    <div class="mt-lg">
                         <a href="/contact/" class="btn-primary">Get Custom Development Quote</a>
                     </div>
                 </div>
@@ -521,14 +521,14 @@
     </section>
 
     <!-- Our Process -->
-    <section id="process" class="process-section">
+    <section id="process" class="process-section section-padding-md">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title" style="color: #3AAEAA; text-transform: none !important;">Our Proven Salesforce Process</h2>
                 <p class="section-subtitle" style="color: #172B2B;">A systematic approach to Salesforce success that ensures measurable results</p>
             </div>
             
-            <div class="process-steps">
+            <div class="process-steps mt-md mb-2xl">
                 <div class="process-step">
                     <div class="process-step-number">1</div>
                     <h3>Assessment & Strategy</h3>
@@ -559,10 +559,10 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
+    <section class="cta-section section-padding-md">
         <div class="container" style="text-align: center;">
-            <h2 style="margin-bottom: 2.5rem; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; animation: fadeInUp 0.8s ease-out;">Ready to Transform Your Business with Salesforce?</h2>
-            <p style="font-size: clamp(1.1rem, 2.5vw, 1.6rem); margin-bottom: 4rem; max-width: 800px; margin-left: auto; margin-right: auto; animation: fadeInUp 0.8s ease-out 0.2s both;">Let our expert team guide you through every step of your Salesforce journey</p>
+            <h2 style="font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; animation: fadeInUp 0.8s ease-out;" class="mb-xl">Ready to Transform Your Business with Salesforce?</h2>
+            <p style="font-size: clamp(1.1rem, 2.5vw, 1.6rem); max-width: 800px; margin-left: auto; margin-right: auto; animation: fadeInUp 0.8s ease-out 0.2s both;" class="mb-2xl">Let our expert team guide you through every step of your Salesforce journey</p>
             <a href="/contact/" class="btn-modern" style="font-size: 1.2rem; padding: 1.2rem 2.5rem; background: var(--white); color: var(--dark); border: none; border-radius: 12px; font-weight: 700; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">Get Your Free Salesforce Assessment</a>
         </div>
     </section>
@@ -637,6 +637,6 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="/script.js?v=2025.1.20"></script>
+    <script src="/script.js?v=2025.1.21"></script>
 </body>
 </html> 

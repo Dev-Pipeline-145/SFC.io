@@ -143,14 +143,40 @@ body {
     --transition-fast: all 0.2s ease;
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     
-    /* Spacing System */
-    --spacing-xs: 0.5rem;
-    --spacing-sm: 1rem;
-    --spacing-md: 1.5rem;
-    --spacing-lg: 2rem;
-    --spacing-xl: 3rem;
-    --spacing-2xl: 4rem;
-    --spacing-3xl: 6rem;
+    /* Spacing System - Standardized */
+    --spacing-xs: 0.5rem;      /* 8px */
+    --spacing-sm: 1rem;        /* 16px */
+    --spacing-md: 1.5rem;      /* 24px */
+    --spacing-lg: 2rem;        /* 32px */
+    --spacing-xl: 3rem;        /* 48px */
+    --spacing-2xl: 4rem;       /* 64px */
+    --spacing-3xl: 6rem;       /* 96px */
+    
+    /* Section Padding - Standardized */
+    --section-padding-sm: 3rem 0;      /* Small sections */
+    --section-padding-md: 5rem 0;      /* Medium sections (default) */
+    --section-padding-lg: 8rem 0;      /* Large sections */
+    
+    /* Card Padding - Standardized */
+    --card-padding-sm: 1.5rem;
+    --card-padding-md: 2rem;
+    --card-padding-lg: 3rem;
+    
+    /* Gap System - Standardized */
+    --gap-xs: 0.5rem;
+    --gap-sm: 1rem;
+    --gap-md: 1.5rem;
+    --gap-lg: 2rem;
+    --gap-xl: 3rem;
+    
+    /* Margin System - Standardized */
+    --margin-xs: 0.5rem;
+    --margin-sm: 1rem;
+    --margin-md: 1.5rem;
+    --margin-lg: 2rem;
+    --margin-xl: 3rem;
+    --margin-2xl: 4rem;
+    --margin-3xl: 6rem;
     
     /* Typography Scale */
     --font-size-xs: 0.75rem;
@@ -650,7 +676,7 @@ header {
     right: 0;
     z-index: 1000;
     backdrop-filter: blur(10px);
-    padding: 0.8rem 0;
+    padding: var(--spacing-sm) 0;
     height: 70px;
     transition: var(--transition);
 }
@@ -658,7 +684,7 @@ header {
 .header-content {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 var(--spacing-lg);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -689,13 +715,13 @@ header {
     justify-content: center;
     flex: 1;
     max-width: 500px;
-    margin: 0 2rem;
+    margin: 0 var(--margin-lg);
 }
 
 .main-nav ul {
     display: flex;
     list-style: none;
-    gap: 3rem;
+    gap: var(--gap-xl);
     margin: 0;
     padding: 0;
     justify-content: center;
@@ -739,7 +765,7 @@ header {
 .nav-icons {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: var(--gap-lg);
     flex-shrink: 0;
 }
 
@@ -942,7 +968,7 @@ header {
 /* Enhanced Hero Section with Movement */
 .hero {
     min-height: 80vh;
-    background-image: url('assets/SalesforceConsultants-Graphic.png');
+    background-image: url('/assets/SalesforceConsultants-Graphic.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -951,6 +977,9 @@ header {
     overflow: hidden;
     display: flex;
     align-items: center;
+    /* Prevent layout shift */
+    aspect-ratio: 16 / 9;
+    min-height: 600px;
 }
 
 .hero-overlay {
@@ -1272,11 +1301,7 @@ header {
     transform: translateY(-2px);
 }
 
-.section-header {
-    text-align: center;
-    margin-bottom: 8rem;
-    padding: 5rem 0;
-}
+/* Old section-header definition removed - using standardized version below */
 
 .section-title {
     color: var(--dark);
@@ -1558,7 +1583,7 @@ header {
 
 /* Enhanced CTA Section */
 .cta-section {
-    padding: 8rem 0;
+    padding: var(--section-padding-md);
     background: var(--gradient-card);
     color: var(--white);
     text-align: center;
@@ -2238,9 +2263,15 @@ footer,
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    gap: 1.5rem;
+    gap: var(--gap-md);
     flex-wrap: nowrap;
-    margin-top: 3rem;
+    /* Top margin handled by utility class (mt-md) */
+    /* Bottom margin handled by utility class (mb-2xl) */
+}
+
+/* Process Section - Standardized Spacing */
+.process-section {
+    padding: var(--section-padding-md);
 }
 
 .process-steps .process-step {
@@ -2683,5 +2714,112 @@ footer,
     .cta-buttons .btn-secondary {
         width: auto;
         min-width: 150px;
+    }
+}
+
+/* ========================================
+   STANDARDIZED SPACING SYSTEM
+   ======================================== */
+
+/* Section Padding Classes - Use these instead of inline styles */
+.section-padding-sm {
+    padding: var(--section-padding-sm) !important;
+}
+
+.section-padding-md {
+    padding: var(--section-padding-md) !important;
+}
+
+.section-padding-lg {
+    padding: var(--section-padding-lg) !important;
+}
+
+/* Standardized Section Spacing */
+section {
+    padding: var(--section-padding-md);
+}
+
+/* Card Padding Classes */
+.card-padding-sm {
+    padding: var(--card-padding-sm) !important;
+}
+
+.card-padding-md {
+    padding: var(--card-padding-md) !important;
+}
+
+.card-padding-lg {
+    padding: var(--card-padding-lg) !important;
+}
+
+/* Gap Utility Classes */
+.gap-xs { gap: var(--gap-xs) !important; }
+.gap-sm { gap: var(--gap-sm) !important; }
+.gap-md { gap: var(--gap-md) !important; }
+.gap-lg { gap: var(--gap-lg) !important; }
+.gap-xl { gap: var(--gap-xl) !important; }
+
+/* Margin Utility Classes */
+.mb-xs { margin-bottom: var(--margin-xs) !important; }
+.mb-sm { margin-bottom: var(--margin-sm) !important; }
+.mb-md { margin-bottom: var(--margin-md) !important; }
+.mb-lg { margin-bottom: var(--margin-lg) !important; }
+.mb-xl { margin-bottom: var(--margin-xl) !important; }
+.mb-2xl { margin-bottom: var(--margin-2xl) !important; }
+.mb-3xl { margin-bottom: var(--margin-3xl) !important; }
+
+.mt-xs { margin-top: var(--margin-xs) !important; }
+.mt-sm { margin-top: var(--margin-sm) !important; }
+.mt-md { margin-top: var(--margin-md) !important; }
+.mt-lg { margin-top: var(--margin-lg) !important; }
+.mt-xl { margin-top: var(--margin-xl) !important; }
+.mt-2xl { margin-top: var(--margin-2xl) !important; }
+.mt-3xl { margin-top: var(--margin-3xl) !important; }
+
+/* Padding Utility Classes */
+.p-xs { padding: var(--spacing-xs) !important; }
+.p-sm { padding: var(--spacing-sm) !important; }
+.p-md { padding: var(--spacing-md) !important; }
+.p-lg { padding: var(--spacing-lg) !important; }
+.p-xl { padding: var(--spacing-xl) !important; }
+
+.py-xs { padding-top: var(--spacing-xs) !important; padding-bottom: var(--spacing-xs) !important; }
+.py-sm { padding-top: var(--spacing-sm) !important; padding-bottom: var(--spacing-sm) !important; }
+.py-md { padding-top: var(--spacing-md) !important; padding-bottom: var(--spacing-md) !important; }
+.py-lg { padding-top: var(--spacing-lg) !important; padding-bottom: var(--spacing-lg) !important; }
+.py-xl { padding-top: var(--spacing-xl) !important; padding-bottom: var(--spacing-xl) !important; }
+
+/* Standardize common section patterns */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--margin-2xl);
+}
+
+.section-header h2 {
+    margin-bottom: var(--margin-lg);
+}
+
+.section-header p {
+    margin-bottom: 0;
+}
+
+/* Standardize grid gaps */
+.grid-gap-sm { gap: var(--gap-sm) !important; }
+.grid-gap-md { gap: var(--gap-md) !important; }
+.grid-gap-lg { gap: var(--gap-lg) !important; }
+.grid-gap-xl { gap: var(--gap-xl) !important; }
+
+/* Responsive spacing adjustments */
+@media (max-width: 768px) {
+    section {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .section-padding-lg {
+        padding: var(--spacing-xl) 0 !important;
+    }
+    
+    .section-header {
+        margin-bottom: var(--margin-xl);
     }
 } 

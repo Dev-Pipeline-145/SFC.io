@@ -28,8 +28,8 @@
             element.innerHTML = html;
             
             // Re-initialize any scripts that need to run after component load
-            if (typeof initializeSite === 'function') {
-                initializeSite();
+            if (typeof window.initializeSite === 'function') {
+                window.initializeSite();
             }
         }
     }
@@ -54,12 +54,7 @@
             }
         }
         
-        // Alternative: Replace existing header/footer if they exist
-        // This allows gradual migration
-        const existingHeader = document.querySelector('header');
-        const existingFooter = document.querySelector('footer');
-        
-        // Only replace if we have placeholders (for gradual migration)
-        // Otherwise, components will be loaded via placeholders
+        // Note: Components are loaded via placeholders (#site-header-placeholder, #site-footer-placeholder)
+        // For gradual migration, pages can use placeholders instead of existing header/footer elements
     });
 })();
