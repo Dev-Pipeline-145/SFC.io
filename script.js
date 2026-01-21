@@ -1320,7 +1320,37 @@ window.openSearchModal = openSearchModal;
 window.closeSearchModal = closeSearchModal;
 window.openBioModal = openBioModal;
 window.closeBioModal = closeBioModal;
+// Export share functions to global scope for header component
 window.toggleShareDropdown = toggleShareDropdown;
 window.copyToClipboard = copyToClipboard;
+
+// Ensure functions are available immediately (not just after DOMContentLoaded)
+if (typeof window.toggleShareDropdown === 'undefined') {
+    window.toggleShareDropdown = function() {
+        const shareMenu = document.getElementById('shareMenu');
+        if (shareMenu) {
+            shareMenu.classList.toggle('active');
+        }
+    };
+}
+
+if (typeof window.copyToClipboard === 'undefined') {
+    window.copyToClipboard = function() {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+            if (typeof showNotification === 'function') {
+                showNotification('Link copied to clipboard!', 'success');
+            }
+            if (typeof toggleShareDropdown === 'function') {
+                toggleShareDropdown();
+            }
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+            if (typeof showNotification === 'function') {
+                showNotification('Failed to copy link', 'error');
+            }
+        });
+    };
+}
 
  
