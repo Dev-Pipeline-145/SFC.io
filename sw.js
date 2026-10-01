@@ -1,7 +1,7 @@
 // Service Worker for DevPipeline Salesforce Consulting
-const CACHE_NAME = 'devpipeline-salesforce-v1.0';
-const STATIC_CACHE = 'static-v1.0';
-const DYNAMIC_CACHE = 'dynamic-v1.0';
+const CACHE_NAME = 'devpipeline-salesforce-v2026.10.4';
+const STATIC_CACHE = 'static-v2026.10.4';
+const DYNAMIC_CACHE = 'dynamic-v2026.10.4';
 
 // Files to cache immediately
 const STATIC_FILES = [

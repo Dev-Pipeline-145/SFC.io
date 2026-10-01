@@ -264,21 +264,18 @@
     </url>
     -->
     
-    <!-- Legal Pages (for future expansion) -->
-    <!--
+    <!-- Legal Pages -->
     <url>
-        <loc>https://salesforceconsultants.io/privacy-policy</loc>
-        <lastmod>2025-01-28</lastmod>
+        <loc>https://salesforceconsultants.io/privacy-policy/</loc>
+        <lastmod>2026-10-01</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
-    
     <url>
-        <loc>https://salesforceconsultants.io/terms-of-service</loc>
-        <lastmod>2025-01-28</lastmod>
+        <loc>https://salesforceconsultants.io/cookie-policy/</loc>
+        <lastmod>2026-10-01</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>
     </url>
-    -->
     
 </urlset> 

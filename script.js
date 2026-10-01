@@ -142,8 +142,7 @@ function fixCardColors() {
 function initializeSite() {
     console.log('🚀 Initializing SalesforceConsultants.io...');
     
-    // Initialize color system
-    fixAllColorContrastIssues();
+    // Color contrast is handled in CSS. Do not overwrite computed colors in JS.
     
     // Initialize search system
     initializeSearch();
@@ -164,6 +163,8 @@ function initializeSite() {
     
     // Initialize stats observer
     initializeStatsObserver();
+    initializeCountUps();
+    initializeHubSwitcher();
     
     // Initialize performance optimizations
     initializePerformanceOptimizations();
@@ -1029,6 +1030,139 @@ function initializeStatsObserver() {
     }
 }
 
+function prefersReducedMotion() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function animateCountEl(el) {
+    const target = Number(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    const prefix = el.dataset.prefix || '';
+    if (Number.isNaN(target)) return;
+
+    if (prefersReducedMotion()) {
+        el.textContent = prefix + target + suffix;
+        return;
+    }
+
+    const duration = 1400;
+    const start = performance.now();
+    const tick = (now) => {
+        const progress = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = prefix + Math.round(target * eased) + suffix;
+        if (progress < 1) {
+            requestAnimationFrame(tick);
+        }
+    };
+    requestAnimationFrame(tick);
+}
+
+function initializeCountUps() {
+    const roots = document.querySelectorAll('[data-countup-root]');
+    if (!prefersReducedMotion()) {
+        roots.forEach((root) => root.classList.add('js-motion'));
+    }
+
+    if (!roots.length || !('IntersectionObserver' in window)) {
+        document.querySelectorAll('.js-countup').forEach(animateCountEl);
+        document.querySelectorAll('.why-metric').forEach((metric) => metric.classList.add('is-in'));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.querySelectorAll('.js-countup').forEach(animateCountEl);
+            entry.target.querySelectorAll('.why-metric').forEach((metric, index) => {
+                metric.style.animationDelay = `${index * 0.12}s`;
+                metric.classList.add('is-in');
+            });
+            observer.unobserve(entry.target);
+        });
+    }, { threshold: 0.35 });
+
+    roots.forEach((root) => observer.observe(root));
+}
+
+function animateHubChips(panel) {
+    const chips = panel.querySelectorAll('.hub-chip');
+    chips.forEach((chip, index) => {
+        chip.classList.remove('is-in');
+        chip.style.animationDelay = '0s';
+        void chip.offsetWidth;
+        if (prefersReducedMotion()) {
+            chip.classList.add('is-in');
+            return;
+        }
+        chip.style.animationDelay = `${index * 0.05}s`;
+        chip.classList.add('is-in');
+    });
+}
+
+function initializeHubSwitcher() {
+    const root = document.querySelector('[data-hub-switcher]');
+    if (!root) return;
+
+    const tabs = Array.from(root.querySelectorAll('[role="tab"]'));
+    const panels = Array.from(root.querySelectorAll('.hub-panel'));
+
+    if (!prefersReducedMotion()) {
+        root.classList.add('js-motion');
+    }
+
+    function activate(hubId, { focusTab = false } = {}) {
+        tabs.forEach((tab) => {
+            const on = tab.dataset.hub === hubId;
+            tab.classList.toggle('is-active', on);
+            tab.setAttribute('aria-selected', on ? 'true' : 'false');
+            tab.tabIndex = on ? 0 : -1;
+            if (on && focusTab) tab.focus();
+        });
+
+        panels.forEach((panel) => {
+            const on = panel.id === `hub-${hubId}`;
+            panel.hidden = !on;
+            panel.classList.toggle('is-active', on);
+            if (on) animateHubChips(panel);
+        });
+    }
+
+    tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => activate(tab.dataset.hub));
+        tab.addEventListener('keydown', (event) => {
+            if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
+            event.preventDefault();
+            const offset = event.key === 'ArrowRight' ? 1 : -1;
+            const next = tabs[(index + offset + tabs.length) % tabs.length];
+            activate(next.dataset.hub, { focusTab: true });
+        });
+    });
+
+    root.querySelectorAll('[data-switch-hub]').forEach((chip) => {
+        chip.addEventListener('click', () => activate(chip.dataset.switchHub));
+    });
+
+    const hash = (window.location.hash || '').replace('#', '');
+    if (hash === 'silicon-slopes' || hash === 'hub-silicon') {
+        activate('silicon');
+    } else if (hash === 'utah-coverage' || hash === 'hub-utah') {
+        activate('utah');
+    } else {
+        const selected = tabs.find((tab) => tab.classList.contains('is-active')) || tabs[0];
+        activate(selected.dataset.hub);
+    }
+
+    window.addEventListener('hashchange', () => {
+        const nextHash = (window.location.hash || '').replace('#', '');
+        if (nextHash === 'silicon-slopes' || nextHash === 'hub-silicon') {
+            activate('silicon');
+        } else if (nextHash === 'utah-coverage' || nextHash === 'hub-utah') {
+            activate('utah');
+        }
+    });
+}
+
 // Mobile Menu Responsive Behavior
 function handleMobileMenu() {
     // Add mobile menu styles if not already present
@@ -1240,75 +1374,82 @@ function initializeBioModal() {
     });
 }
 
-// Exit Intent Popup System - Module-level variables for scope
-let hasShownPopup = false;
+// $500 discovery popup
+// Dismiss 1: return after 5 minutes if this page is still open.
+// Dismiss 2: stay hidden until a new session or page refresh.
+const OFFER_REOPEN_MS = 5 * 60 * 1000;
+let offerDismissCount = 0;
 let isPopupVisible = false;
+let offerReopenTimer = null;
+
+function canShowOfferPopup() {
+    return !isPopupVisible && offerDismissCount < 2;
+}
 
 function initializeExitIntentPopup() {
-    // Create popup HTML
     const popupHTML = `
         <div id="exitIntentPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000;">
             <div style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
                 <div style="background: white; padding: 2rem; border-radius: 16px; max-width: 500px; margin: 1rem; text-align: center; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
                 <button onclick="closeExitIntentPopup()" style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">×</button>
-                <h3 style="color: #3AAEAA; margin-bottom: 1rem; font-size: 1.5rem;">Wait! Get Your Free Salesforce Assessment</h3>
-                <p style="color: #5a6c7d; margin-bottom: 1.5rem; line-height: 1.6;">Don't miss out on optimizing your Salesforce investment. Get a free assessment worth $500 and discover how to improve your ROI by 40%.</p>
+                <h3 style="color: #3AAFA9; margin-bottom: 1rem; font-size: 1.5rem;">Wait! Claim Your $500 Discovery</h3>
+                <p style="color: #5a6c7d; margin-bottom: 1.5rem; line-height: 1.6;">Don't miss out on optimizing your Salesforce investment. Book a $500 discovery and see how to improve your ROI by 40%.</p>
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="/contact/" style="background: #3AAEAA; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease;">Get Free Assessment</a>
+                    <a href="/contact/" style="background: #2B7A78; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease;">Get $500 Discovery</a>
                     <button onclick="closeExitIntentPopup()" style="background: #f8f9fa; color: #5a6c7d; padding: 12px 24px; border: 1px solid #dee2e6; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Maybe Later</button>
                 </div>
             </div>
         </div>
     `;
-    
-    // Add popup to page
+
     document.body.insertAdjacentHTML('beforeend', popupHTML);
-    
-    // Track mouse movement
+
     document.addEventListener('mouseleave', function(e) {
-        if (e.clientY <= 0 && !hasShownPopup && !isPopupVisible) {
+        if (e.clientY <= 0 && offerDismissCount === 0 && canShowOfferPopup()) {
             showExitIntentPopup();
         }
-    });
-    
-    // Track scroll behavior (if user scrolls to bottom quickly)
-    let scrollTimeout;
-    document.addEventListener('scroll', function() {
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(function() {
-            const scrollPercentage = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-            if (scrollPercentage > 80 && !hasShownPopup && !isPopupVisible) {
-                showExitIntentPopup();
-            }
-        }, 1000);
     });
 }
 
 function showExitIntentPopup() {
     const popup = document.getElementById('exitIntentPopup');
-    if (popup && !isPopupVisible) {
-        popup.style.display = 'block';
-        isPopupVisible = true;
-        hasShownPopup = true;
-        
-        // Track conversion
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'exit_intent_popup_shown', {
-              'event_category': 'engagement',
-              'event_label': 'exit_intent',
-              'value': 1,
-              'custom_parameter_3': 'usa_canada_europe',
-              'custom_parameter_4': 'california_missouri_kansas_rocky_mountain_region'
-            });
-        }
+    if (!popup || !canShowOfferPopup()) {
+        return;
+    }
+
+    popup.style.display = 'block';
+    isPopupVisible = true;
+
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'exit_intent_popup_shown', {
+          'event_category': 'engagement',
+          'event_label': 'exit_intent',
+          'value': 1
+        });
     }
 }
 
 function closeExitIntentPopup() {
     const popup = document.getElementById('exitIntentPopup');
-    if (popup) {
-        popup.style.display = 'none';
-        isPopupVisible = false;
+    if (!popup || !isPopupVisible) {
+        return;
+    }
+
+    popup.style.display = 'none';
+    isPopupVisible = false;
+    offerDismissCount += 1;
+
+    if (offerReopenTimer) {
+        clearTimeout(offerReopenTimer);
+        offerReopenTimer = null;
+    }
+
+    // First dismiss: return in 5 minutes if they stay on this page.
+    if (offerDismissCount === 1) {
+        offerReopenTimer = setTimeout(function() {
+            offerReopenTimer = null;
+            showExitIntentPopup();
+        }, OFFER_REOPEN_MS);
     }
 }
 

@@ -3,13 +3,14 @@
 :root {
     --black: #000000;
     --white: #ffffff;
-    --teal: #3AAEAA;
-    --dark: #172B2B;
+    --teal: #3AAFA9;
+    --dark: #17252A;
     --light-gray: #f5f5f5;
-    --teal-light: #4BC3BD;
-    --teal-dark: #2A8A85;
+    --teal-light: #3AAFA9;
+    --teal-dark: #2B7A78;
     --dark-light: #2A3F45;
-    --accent-gold: #FFD700;
+    --mint: #DEF2F1;
+    --accent-gold: #F2C57C;
     --shadow-light: 0 2px 10px rgba(0,0,0,0.1);
     --shadow-medium: 0 4px 20px rgba(0,0,0,0.15);
     --border-radius: 12px;

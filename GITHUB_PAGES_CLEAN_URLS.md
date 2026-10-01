@@ -112,3 +112,6 @@ Old `.html` files should redirect to new clean URLs:
 
 **Status**: Directory structure created ✅  
 **Next**: Update internal links, canonical URLs, and sitemap
+
+
+

@@ -51,3 +51,6 @@ paginate_path: "/blog/page:num/"
 collections:
   services:
     output: true
+
+
+

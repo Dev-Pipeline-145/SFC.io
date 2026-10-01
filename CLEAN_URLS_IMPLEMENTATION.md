@@ -117,3 +117,6 @@ The site is deployed via GitHub Actions workflow (`.github/workflows/deploy.yml`
 
 **Status**: Core structure complete ✅  
 **Next**: Update remaining internal links and canonical URLs
+
+
+

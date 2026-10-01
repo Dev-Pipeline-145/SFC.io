@@ -51,3 +51,6 @@ function showExitIntentPopup() {
 2. Hard refresh browser (Ctrl+F5 / Cmd+Shift+R)
 3. Verify console shows `script.js?v=2025.1.20` (not 2024.1.22)
 4. Error should be resolved
+
+
+

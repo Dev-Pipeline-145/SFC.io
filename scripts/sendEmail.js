@@ -75,6 +75,20 @@ document.addEventListener("DOMContentLoaded", function () {
     const formData = new FormData(form);
     const emailData = Object.fromEntries(formData.entries());
 
+    // Explicitly ensure message/notes field is captured
+    const messageField = form.querySelector('textarea[name="message"]');
+    if (messageField) {
+      emailData.message = messageField.value.trim();
+      // Also include as 'notes' for backend compatibility
+      if (emailData.message) {
+        emailData.notes = emailData.message;
+      }
+    }
+
+    // Debug: Log the data being sent (remove in production if needed)
+    console.log('Form data being sent:', emailData);
+    console.log('Message field value:', emailData.message || '(empty)');
+
     fetch("https://flask-mailer-04f370a78f42.herokuapp.com/send", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -82,6 +96,8 @@ document.addEventListener("DOMContentLoaded", function () {
     })
       .then(async (response) => {
         const result = await response.json();
+        console.log('Backend response:', result);
+
         if (response.ok) {
           // Track successful form submission in Google Analytics
           if (typeof gtag !== 'undefined') {
@@ -111,6 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
           invalidEmailToastShown = false;
           invalidPhoneToastShown = false;
         } else {
+          console.error('Form submission error:', result);
           displayToast(
             result.error || result.MESSAGE || "Failed to send message.",
             "error"
