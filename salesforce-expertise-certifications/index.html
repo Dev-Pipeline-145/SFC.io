@@ -14,7 +14,7 @@
     <link rel="icon" type="image/png" sizes="512x512" href="/favicon/android-chrome-512x512.png">
     <link rel="manifest" href="/site.webmanifest">
     <title>Salesforce Expertise & Certifications | 15+ Certifications | Client Testimonials | SalesforceConsultants.io</title>
-    <meta name="description" content="Salesforce consulting firm headquartered in Utah and Missouri, serving businesses across the Rocky Mountain and MO/KS regions, as well as enterprise clients worldwide.">
+    <meta name="description" content="Salesforce consulting firm headquartered in Utah and Missouri, serving businesses across the Rocky Mountain and MO/KS regions and the United States.">
     <meta name="keywords" content="Salesforce expertise, Salesforce certifications, Salesforce consultants, Salesforce implementation recovery, Salesforce optimization, Salesforce client testimonials, Salesforce consulting expertise, 15+ Salesforce certifications">
     <meta name="author" content="SalesforceConsultants.io">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -23,7 +23,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://salesforceconsultants.io/expertise/">
     <meta property="og:title" content="Salesforce Expertise & Certifications | Client Testimonials | SalesforceConsultants.io">
-    <meta property="og:description" content="Salesforce consulting firm headquartered in Utah and Missouri, serving businesses across the Rocky Mountain and MO/KS regions, as well as enterprise clients worldwide.">
+    <meta property="og:description" content="Salesforce consulting firm headquartered in Utah and Missouri, serving businesses across the Rocky Mountain and MO/KS regions and the United States.">
     <meta property="og:image" content="https://salesforceconsultants.io/assets/SalesforceConsultants-Graphic.png">
     <meta property="og:site_name" content="SalesforceConsultants.io">
     
@@ -31,7 +31,7 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://salesforceconsultants.io/expertise/">
     <meta property="twitter:title" content="Salesforce Expertise & Certifications | Client Testimonials | SalesforceConsultants.io">
-    <meta property="twitter:description" content="Salesforce consulting firm headquartered in Utah and Missouri, serving businesses across the Rocky Mountain and MO/KS regions, as well as enterprise clients worldwide.">
+    <meta property="twitter:description" content="Salesforce consulting firm headquartered in Utah and Missouri, serving businesses across the Rocky Mountain and MO/KS regions and the United States.">
     <meta property="twitter:image" content="https://salesforceconsultants.io/assets/SalesforceConsultants-Graphic.png">
     
     <!-- Canonical URL -->
@@ -43,8 +43,8 @@
     <!-- Oceanwide Pro Font -->
     
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="/styles.css?v=2024.1.24">
-    <link rel="stylesheet" href="/components.css?v=2026.10.3">
+    <link rel="stylesheet" href="/styles.css?v=2026.10.19">
+    <link rel="stylesheet" href="/components.css?v=2026.10.18">
     
     <!-- Additional styles for expertise page -->
     <style>
@@ -238,7 +238,7 @@
         }
         
         .team-member p {
-            color: var(--text-light);
+            color: var(--text-dark);
             line-height: 1.6;
         }
         
@@ -280,7 +280,7 @@
         }
         
         .experience-card p {
-            color: var(--text-light);
+            color: var(--text-dark);
         }
         
         @keyframes fadeInUp {
@@ -313,7 +313,7 @@
             }
         }
     </style>
-    <script src="/scripts/consent.js?v=2026.10.2" defer></script>
+    <script src="/scripts/consent.js?v=2026.10.8" defer></script>
 </head>
 <body>
     <!-- Header -->
@@ -396,43 +396,42 @@
         </div>
     </section>
 
-    <!-- Certifications Section -->
-    <section id="certifications" class="certifications-section" style="background: linear-gradient(135deg, var(--dark) 0%, var(--teal) 100%); padding: 6rem 0; position: relative; overflow: hidden;">
-        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.02); pointer-events: none;"></div>
-        <div class="container" style="position: relative; z-index: 2;">
-            <div class="section-header">
-                <h2 class="section-title" style="color: white;">Emergency Salesforce Support & Recovery Services</h2>
-                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">From inherited broken Salesforce org recovery to Salesforce team self sufficiency training</p>
+    <section id="certifications" class="credential-board" aria-labelledby="credential-heading">
+        <div class="container">
+            <div class="credential-board-header">
+                <p class="credential-kicker">Team credentials</p>
+                <h2 id="credential-heading">Salesforce certifications we work with</h2>
+                <p>Each credential maps to a delivery capability: org administration and declarative apps, custom development and architecture, plus Service Cloud and Experience Cloud (Community Cloud) consulting.</p>
             </div>
-            
-            <div class="cert-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-top: 4rem;">
-                <div class="cert-category" style="background: rgba(255,255,255,0.1); padding: 2.5rem; border-radius: 16px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
-                    <h3 style="color: white; margin-bottom: 1.5rem; font-size: 1.4rem; font-weight: 700;">Salesforce Administration & Platform</h3>
-                    <ul class="cert-list" style="list-style: none; margin: 0; padding: 0;">
-                        <li style="color: rgba(255,255,255,0.9); margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">Salesforce Certified Administrator</li>
-                        <li style="color: rgba(255,255,255,0.9); margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">Salesforce Certified Platform App Builder</li>
+            <div class="credential-groups">
+                <article class="credential-group">
+                    <h3>Salesforce Administration &amp; Platform</h3>
+                    <p>Org setup, security defaults, automation, and declarative apps so teams can run Salesforce without waiting on custom code.</p>
+                    <ul>
+                        <li class="credential-chip" data-credential="certified-administrator">Salesforce Certified Administrator</li>
+                        <li class="credential-chip" data-credential="platform-app-builder">Salesforce Certified Platform App Builder</li>
                     </ul>
-                </div>
-                
-                <div class="cert-category" style="background: rgba(255,255,255,0.1); padding: 2.5rem; border-radius: 16px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
-                    <h3 style="color: white; margin-bottom: 1.5rem; font-size: 1.4rem; font-weight: 700;">Salesforce Development & Architecture</h3>
-                    <ul class="cert-list" style="list-style: none; margin: 0; padding: 0;">
-                        <li style="color: rgba(255,255,255,0.9); margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">Salesforce Platform Developer I</li>
-                        <li style="color: rgba(255,255,255,0.9); margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">Salesforce Platform Developer II</li>
-                        <li style="color: rgba(255,255,255,0.9); margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">Salesforce Application Architect</li>
-                        <li style="color: rgba(255,255,255,0.9); margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">Salesforce Data Architect</li>
-                        <li style="color: rgba(255,255,255,0.9); margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">Salesforce Sharing and Visibility Architect</li>
-                        <li style="color: rgba(255,255,255,0.9); margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">Salesforce Development Lifecycle Architect</li>
+                </article>
+                <article class="credential-group">
+                    <h3>Salesforce Development &amp; Architecture</h3>
+                    <p>Apex and Lightning development, data model design, sharing and visibility, and release / lifecycle architecture.</p>
+                    <ul>
+                        <li class="credential-chip" data-credential="platform-developer-i">Salesforce Platform Developer I</li>
+                        <li class="credential-chip" data-credential="platform-developer-ii">Salesforce Platform Developer II</li>
+                        <li class="credential-chip" data-credential="application-architect">Salesforce Application Architect</li>
+                        <li class="credential-chip" data-credential="data-architect">Salesforce Data Architect</li>
+                        <li class="credential-chip" data-credential="sharing-and-visibility-architect">Salesforce Sharing and Visibility Architect</li>
+                        <li class="credential-chip" data-credential="development-lifecycle-architect">Salesforce Development Lifecycle Architect</li>
                     </ul>
-                </div>
-                
-                <div class="cert-category" style="background: rgba(255,255,255,0.1); padding: 2.5rem; border-radius: 16px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);">
-                    <h3 style="color: white; margin-bottom: 1.5rem; font-size: 1.4rem; font-weight: 700;">Salesforce Cloud Consulting</h3>
-                    <ul class="cert-list" style="list-style: none; margin: 0; padding: 0;">
-                        <li style="color: rgba(255,255,255,0.9); margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">Salesforce Service Cloud Consultant</li>
-                        <li style="color: rgba(255,255,255,0.9); margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative;">Salesforce Community Cloud Consultant</li>
+                </article>
+                <article class="credential-group">
+                    <h3>Salesforce Cloud Consulting</h3>
+                    <p>Service Cloud case and omni-channel design, plus Community Cloud / Experience Cloud portals for customers and partners.</p>
+                    <ul>
+                        <li class="credential-chip" data-credential="service-cloud-consultant">Salesforce Service Cloud Consultant</li>
+                        <li class="credential-chip" data-credential="community-cloud-consultant">Salesforce Community Cloud Consultant</li>
                     </ul>
-                </div>
+                </article>
             </div>
         </div>
     </section>
@@ -534,7 +533,7 @@
                 
                 <div class="benefit-item">
                     <h3>Expert Salesforce Consultant Salt Lake City</h3>
-                    <p>Local expertise with global capabilities - serving Utah and California with proven results</p>
+                    <p>Local expertise serving Silicon Slopes, Utah, Missouri, and businesses across the United States</p>
                 </div>
                 
                 <div class="benefit-item">
@@ -561,75 +560,64 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer-component">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
+                <div class="footer-section footer-brand">
                     <h3>SalesforceConsultants.io</h3>
-                    <p style="margin-bottom: 1rem;">A DevPipeline Division</p>
-                    <p>Headquartered in Utah (Orem / Salt Lake) and Missouri. Serving Rocky Mountain and MO/KS businesses, plus enterprise clients nationwide and worldwide.</p>
-                    <div class="office-locations" style="margin-top: 1rem;">
-                        <p style="margin-bottom: 0.5rem;"><strong>Utah HQ</strong>518 E 800 N, Suite C, Orem, UT 84097</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Missouri Office</strong>Kansas City, MO</p>
-                        <p>(385) 309-0807</p>
-                        <p>marketing@devpipeline.com</p>
-                    </div>
+                    <p>A DevPipeline Division</p>
+                    <p><strong>Utah HQ</strong> 518 E 800 N, Suite C, Orem, UT 84097</p>
+                    <p><strong>Missouri</strong> Kansas City, MO</p>
+                    <p><a href="tel:+13853090807">385-309-0807</a> · <a href="mailto:marketing@devpipeline.com">marketing@devpipeline.com</a></p>
                 </div>
-                
+
                 <div class="footer-section">
-                    <h3>Salesforce Services</h3>
+                    <h3>Services</h3>
                     <ul>
-                        <li><a href="/services/">Salesforce Implementation</a></li>
-                        <li><a href="/services/">Custom Salesforce Development</a></li>
-                        <li><a href="/services/">Salesforce Training & Certification</a></li>
-                        <li><a href="/services/">Salesforce System Integration</a></li>
-                        <li><a href="/services/">Salesforce AI & Automation</a></li>
-                        <li><a href="/services/">Nonprofit Salesforce Solutions</a></li>
+                        <li><a href="/services/">Custom Development</a></li>
+                        <li><a href="/services/">Implementation</a></li>
+                        <li><a href="/services/">Training</a></li>
+                        <li><a href="/services/">Integrations</a></li>
+                        <li><a href="/services/">Automation</a></li>
+                        <li><a href="/services/">Migrations</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
-                    <h3>Industries We Serve</h3>
+                    <h3>Resources</h3>
                     <ul>
-                        <li>Nonprofit Organizations</li>
-                        <li>Chambers of Commerce</li>
-                        <li>Professional Associations</li>
-                        <li>Membership Organizations</li>
-                        <li>Professional Services</li>
-                        <li>B2B Service Companies</li>
+                        <li><a href="/success-stories/">Success Stories</a></li>
+                        <li><a href="/expertise/">Expertise &amp; Certifications</a></li>
+                        <li><a href="/clients/">Our Clients</a></li>
+                        <li><a href="/contact/">Contact Us</a></li>
+                        <li><a href="/faq/">FAQ</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
-                    <h3>Our Salesforce Expertise</h3>
+                    <h3>Service Areas</h3>
                     <ul>
-                        <li>15+ Salesforce Certifications</li>
-                        <li>Salesforce Sales Cloud Implementation</li>
-                        <li>Salesforce Service Cloud Optimization</li>
-                        <li>Salesforce Marketing Cloud Setup</li>
-                        <li>Salesforce Nonprofit Cloud & NPSP</li>
-                        <li>Salesforce Enterprise Architecture</li>
+                        <li><a href="/#silicon-slopes">Silicon Slopes</a></li>
+                        <li><a href="/rocky-mountain/region/">Rocky Mountain</a></li>
+                        <li><a href="/#utah-coverage">Utah Urban &amp; Rural</a></li>
+                        <li><a href="/midwest/region/">Missouri &amp; Kansas</a></li>
+                        <li>Nationwide</li>
                     </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Connect With Us</h3>
-                    <p>Ready to transform your business with Salesforce?</p>
-                    <p>Contact us today for a free consultation and assessment.</p>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
-                <p>&copy; 2025 DevPipeline | SalesforceConsultants.io. All rights reserved. | 
-                            <a href="/privacy-policy/" style="color: var(--teal-dark);">Privacy Policy</a> | <a href="/cookie-policy/" style="color: var(--teal-dark);">Cookie Policy</a> | <a href="#" onclick="if(window.sfcOpenCookieSettings){sfcOpenCookieSettings();return false;}" style="color: var(--teal-dark);">Cookie Settings</a></p>
-                <p style="margin-top: 1rem; font-size: 0.9rem;">
-                    Salesforce, Sales Cloud, Service Cloud, Marketing Cloud, and other Salesforce products are trademarks of Salesforce.com, Inc. SalesforceConsultants.io is an independent Salesforce consulting firm.
+                <p>&copy; 2026 DevPipeline | SalesforceConsultants.io. All rights reserved. |
+                    <a href="/privacy-policy/">Privacy Policy</a> |
+                    <a href="/cookie-policy/">Cookie Policy</a> |
+                    <a href="#" onclick="if(window.sfcOptOut){sfcOptOut();return false;}">Do Not Sell or Share</a>
                 </p>
+                <p class="footer-legal">Salesforce, Sales Cloud, Service Cloud, Marketing Cloud, and other Salesforce products are trademarks of Salesforce.com, Inc. SalesforceConsultants.io is an independent Salesforce consulting firm.</p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
-    <script src="/script.js?v=2026.10.4"></script>
+    <script src="/script.js?v=2026.10.13"></script>
 </body>
 </html> 

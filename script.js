@@ -485,10 +485,10 @@ function loadSearchData() {
         },
         {
             title: 'Salesforce Certifications',
-            content: '15+ Salesforce certifications across all major Salesforce products',
-            url: 'expertise.html',
+            content: 'Salesforce Certified Administrator, Platform App Builder, Platform Developer I and II, Application Architect, Data Architect, Sharing and Visibility Architect, Development Lifecycle Architect, Service Cloud Consultant, and Community Cloud Consultant',
+            url: '/expertise/#certifications',
             category: 'Expertise',
-            tags: ['certifications', 'salesforce', 'products']
+            tags: ['certifications', 'administrator', 'app builder', 'platform developer', 'architect', 'data architect', 'sharing and visibility', 'development lifecycle', 'service cloud', 'community cloud']
         },
         
         // Contact content
@@ -650,10 +650,10 @@ function loadSearchData() {
         // Certification content
         {
             title: '15+ Salesforce Certifications',
-            content: 'Our team holds 15+ Salesforce certifications across all major Salesforce products and clouds',
-            url: 'expertise.html',
+            content: 'Administrator, Platform App Builder, Platform Developer I and II, Application Architect, Data Architect, Sharing and Visibility Architect, Development Lifecycle Architect, Service Cloud Consultant, and Community Cloud Consultant (Experience Cloud)',
+            url: '/expertise/#certifications',
             category: 'Expertise',
-            tags: ['certifications', 'salesforce', 'products', 'clouds']
+            tags: ['certifications', 'salesforce', 'administrator', 'architect', 'service cloud', 'community cloud', 'experience cloud']
         },
         {
             title: 'Salesforce Certification Training',
@@ -1390,13 +1390,13 @@ function initializeExitIntentPopup() {
     const popupHTML = `
         <div id="exitIntentPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10000;">
             <div style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">
-                <div style="background: white; padding: 2rem; border-radius: 16px; max-width: 500px; margin: 1rem; text-align: center; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
-                <button onclick="closeExitIntentPopup()" style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #666;">×</button>
-                <h3 style="color: #3AAFA9; margin-bottom: 1rem; font-size: 1.5rem;">Wait! Claim Your $500 Discovery</h3>
-                <p style="color: #5a6c7d; margin-bottom: 1.5rem; line-height: 1.6;">Don't miss out on optimizing your Salesforce investment. Book a $500 discovery and see how to improve your ROI by 40%.</p>
+                <div style="background: white; padding: 2rem; border-radius: 16px; max-width: 500px; width: calc(100% - 2rem); box-sizing: border-box; margin: 1rem; text-align: center; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+                <button onclick="closeExitIntentPopup()" style="position: absolute; top: 10px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #17252A;">×</button>
+                <h3 style="color: #17252A; margin-bottom: 1rem; font-size: 1.5rem;">Wait! Claim Your $500 Discovery</h3>
+                <p style="color: #17252A; margin-bottom: 1.5rem; line-height: 1.6;">Don't miss out on optimizing your Salesforce investment. Book a $500 discovery and see how to improve your ROI by 40%.</p>
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="/contact/" style="background: #2B7A78; color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease;">Get $500 Discovery</a>
-                    <button onclick="closeExitIntentPopup()" style="background: #f8f9fa; color: #5a6c7d; padding: 12px 24px; border: 1px solid #dee2e6; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Maybe Later</button>
+                    <a href="/contact/" style="background: #2B7A78; color: #FFFFFF; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease;">Get $500 Discovery</a>
+                    <button onclick="closeExitIntentPopup()" style="background: #FFFFFF; color: #17252A; padding: 12px 24px; border: 1px solid #2B7A78; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Maybe Later</button>
                 </div>
             </div>
         </div>
@@ -1493,5 +1493,34 @@ if (typeof window.copyToClipboard === 'undefined') {
         });
     };
 }
+
+function sfcTrackCredential(eventName, params) {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', eventName, params);
+}
+
+document.addEventListener('click', function(event) {
+    const chip = event.target.closest('[data-credential]');
+    if (!chip) return;
+    sfcTrackCredential('select_content', {
+        content_type: 'salesforce_credential',
+        item_id: chip.getAttribute('data-credential'),
+        item_name: (chip.textContent || '').trim()
+    });
+});
+
+(function trackCredentialBoardView() {
+    const board = document.getElementById('certifications');
+    if (!board || typeof IntersectionObserver === 'undefined') return;
+    const observer = new IntersectionObserver(function(entries, obs) {
+        if (!entries.some(function(entry) { return entry.isIntersecting; })) return;
+        sfcTrackCredential('view_item_list', {
+            item_list_id: 'salesforce_credentials',
+            item_list_name: 'Salesforce certifications'
+        });
+        obs.disconnect();
+    }, { threshold: 0.4 });
+    observer.observe(board);
+})();
 
  

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Salesforce Services | Implementation, Training &amp; Integration | Utah &amp; Missouri HQ</title>
-    <meta name="description" content="Salesforce consulting firm headquartered in Utah and Missouri, serving businesses across the Rocky Mountain and MO/KS regions, as well as enterprise clients worldwide.">
-    <meta name="keywords" content="California Salesforce services, Missouri Salesforce services, Kansas Salesforce services, Salesforce implementation California, Salesforce training Missouri, Salesforce integration Kansas, Salesforce services, Salesforce implementation, Salesforce training, Salesforce development, Salesforce integration, Salesforce automation, Salesforce migration, Salesforce consulting, CRM services, Salesforce nonprofit solutions, Salesforce ROI calculator, Salesforce implementation cost, Salesforce certification training, Salesforce automation consultant, LA Chamber Salesforce, California nonprofit Salesforce, Missouri nonprofit Salesforce, Kansas nonprofit Salesforce">
+    <meta name="description" content="Salesforce consulting firm headquartered in Utah and Missouri, serving businesses across the Rocky Mountain and MO/KS regions and the United States.">
+    <meta name="keywords" content="Silicon Slopes Salesforce services, Missouri Salesforce services, Kansas Salesforce services, Salesforce implementation Utah, Salesforce training Missouri, Salesforce integration Kansas, Salesforce services, Salesforce implementation, Salesforce training, Salesforce development, Salesforce integration, Salesforce automation, Salesforce migration, Salesforce consulting, CRM services, Salesforce nonprofit solutions, Salesforce ROI calculator, Salesforce implementation cost, Salesforce certification training, Salesforce automation consultant, LA Chamber Salesforce, Utah nonprofit Salesforce, Missouri nonprofit Salesforce, Kansas nonprofit Salesforce">
     <meta name="author" content="SalesforceConsultants.io">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     
@@ -14,7 +14,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://salesforceconsultants.io/services/">
     <meta property="og:title" content="Salesforce Services | Headquartered in Utah &amp; Missouri">
-    <meta property="og:description" content="Salesforce consulting firm headquartered in Utah and Missouri, serving businesses across the Rocky Mountain and MO/KS regions, as well as enterprise clients worldwide.">
+    <meta property="og:description" content="Salesforce consulting firm headquartered in Utah and Missouri, serving businesses across the Rocky Mountain and MO/KS regions and the United States.">
     <meta property="og:image" content="https://salesforceconsultants.io/assets/SalesforceConsultants-Graphic.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -25,7 +25,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://salesforceconsultants.io/services/">
     <meta name="twitter:title" content="Salesforce Services | Headquartered in Utah &amp; Missouri">
-    <meta name="twitter:description" content="Salesforce consulting firm headquartered in Utah and Missouri, serving businesses across the Rocky Mountain and MO/KS regions, as well as enterprise clients worldwide.">
+    <meta name="twitter:description" content="Salesforce consulting firm headquartered in Utah and Missouri, serving businesses across the Rocky Mountain and MO/KS regions and the United States.">
     <meta name="twitter:image" content="https://salesforceconsultants.io/assets/SalesforceConsultants-Graphic.png">
     
     <!-- Canonical URL -->
@@ -37,7 +37,7 @@
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "SalesforceConsultants.io - Salesforce Services",
-      "description": "Salesforce consulting firm headquartered in Utah and Missouri, serving businesses across the Rocky Mountain and MO/KS regions, as well as enterprise clients worldwide.",
+      "description": "Salesforce consulting firm headquartered in Utah and Missouri, serving businesses across the Rocky Mountain and MO/KS regions and the United States.",
       "url": "https://salesforceconsultants.io/services/",
       "telephone": "+1-385-309-0807",
       "email": "marketing@devpipeline.com",
@@ -57,7 +57,7 @@
           "addressCountry": "US"
         }
       ],
-      "areaServed": ["Utah", "Missouri", "Kansas", "Colorado", "Nevada", "Arizona", "Idaho", "Montana", "Wyoming", "USA", "Worldwide"],
+      "areaServed": ["Utah", "Missouri", "Kansas", "Colorado", "Nevada", "Arizona", "Idaho", "Montana", "Wyoming", "USA"],
       "serviceType": ["Salesforce Implementation", "Salesforce Training", "Salesforce Integration", "Salesforce Custom Development", "Salesforce Migration", "Salesforce Automation"],
       "parentOrganization": {
         "@type": "Organization",
@@ -75,8 +75,8 @@
     <link rel="manifest" href="/site.webmanifest">
     
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="/styles.css?v=2026.10.3">
-    <link rel="stylesheet" href="/components.css?v=2026.10.3">
+    <link rel="stylesheet" href="/styles.css?v=2026.10.19">
+    <link rel="stylesheet" href="/components.css?v=2026.10.18">
     
     <!-- Additional styles for services page -->
     <style>
@@ -173,31 +173,25 @@
         }
         
         .service-image {
+            position: relative;
             width: 100%;
-            height: 500px;
+            aspect-ratio: 4 / 3;
+            height: auto;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: var(--shadow-medium);
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #f8f9fa;
-        }
-        
-        .service-image:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-heavy);
+            background: #DEF2F1;
         }
         
         .service-image img {
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: contain;
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            max-width: none;
+            object-fit: cover;
             object-position: center;
-            padding: 2rem;
+            padding: 0;
+            display: block;
         }
         
         .service-detail-text h2 {
@@ -212,7 +206,7 @@
         .service-detail-text p {
             font-size: clamp(1.1rem, 2vw, 1.4rem);
             margin-bottom: var(--margin-lg);
-            color: #7f8c8d;
+            color: var(--dark);
             line-height: 1.6;
         }
         
@@ -283,7 +277,7 @@
             }
         }
     </style>
-    <script src="/scripts/consent.js?v=2026.10.2" defer></script>
+    <script src="/scripts/consent.js?v=2026.10.8" defer></script>
 </head>
 <body>
     <!-- Header -->
@@ -538,11 +532,11 @@
     <section id="process" class="process-section section-padding-md">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title" style="color: #3AAEAA; text-transform: none !important;">Our Proven Salesforce Process</h2>
-                <p class="section-subtitle" style="color: #172B2B;">A systematic approach to Salesforce success that ensures measurable results</p>
+                <h2 class="section-title" style="color: #2B7A78; text-transform: none !important;">Our Proven Salesforce Process</h2>
+                <p class="section-subtitle" style="color: #17252A;">A systematic approach to Salesforce success that ensures measurable results</p>
             </div>
             
-            <div class="process-steps mt-md mb-2xl">
+            <div class="process-grid mt-md mb-2xl">
                 <div class="process-step">
                     <div class="process-step-number">1</div>
                     <h3>Assessment & Strategy</h3>
@@ -582,70 +576,59 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer-component">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
+                <div class="footer-section footer-brand">
                     <h3>SalesforceConsultants.io</h3>
-                    <p style="margin-bottom: 1rem;">A DevPipeline Division</p>
-                    <p>Headquartered in Utah (Orem / Salt Lake) and Missouri. Serving Rocky Mountain and MO/KS businesses, plus enterprise clients nationwide and worldwide.</p>
-                    <div class="office-locations" style="margin-top: 1rem;">
-                        <p style="margin-bottom: 0.5rem;"><strong>Utah HQ</strong>518 E 800 N, Suite C, Orem, UT 84097</p>
-                        <p style="margin-bottom: 0.5rem;"><strong>Missouri Office</strong>Kansas City, MO</p>
-                        <p>(385) 309-0807</p>
-                        <p>marketing@devpipeline.com</p>
-                    </div>
+                    <p>A DevPipeline Division</p>
+                    <p><strong>Utah HQ</strong> 518 E 800 N, Suite C, Orem, UT 84097</p>
+                    <p><strong>Missouri</strong> Kansas City, MO</p>
+                    <p><a href="tel:+13853090807">385-309-0807</a> · <a href="mailto:marketing@devpipeline.com">marketing@devpipeline.com</a></p>
                 </div>
-                
+
                 <div class="footer-section">
-                    <h3>Salesforce Services</h3>
+                    <h3>Services</h3>
                     <ul>
-                        <li><a href="/services/">Salesforce Implementation</a></li>
-                        <li><a href="/services/">Custom Salesforce Development</a></li>
-                        <li><a href="/services/">Salesforce Training & Certification</a></li>
-                        <li><a href="/services/">Salesforce System Integration</a></li>
-                        <li><a href="/services/">Salesforce AI & Automation</a></li>
-                        <li><a href="/services/">Nonprofit Salesforce Solutions</a></li>
+                        <li><a href="/services/">Custom Development</a></li>
+                        <li><a href="/services/">Implementation</a></li>
+                        <li><a href="/services/">Training</a></li>
+                        <li><a href="/services/">Integrations</a></li>
+                        <li><a href="/services/">Automation</a></li>
+                        <li><a href="/services/">Migrations</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
-                    <h3>Connect With Us</h3>
-                    <p>Ready to transform your business with Salesforce?</p>
-                    <p>Contact us today for a free consultation and assessment.</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Industries We Serve</h3>
+                    <h3>Resources</h3>
                     <ul>
-                        <li>Nonprofit Organizations</li>
-                        <li>Chambers of Commerce</li>
-                        <li>Professional Associations</li>
-                        <li>Membership Organizations</li>
-                        <li>Professional Services</li>
-                        <li>B2B Service Companies</li>
+                        <li><a href="/success-stories/">Success Stories</a></li>
+                        <li><a href="/expertise/">Expertise &amp; Certifications</a></li>
+                        <li><a href="/clients/">Our Clients</a></li>
+                        <li><a href="/contact/">Contact Us</a></li>
+                        <li><a href="/faq/">FAQ</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
-                    <h3>Our Salesforce Expertise</h3>
+                    <h3>Service Areas</h3>
                     <ul>
-                        <li>15+ Salesforce Certifications</li>
-                        <li>Salesforce Sales Cloud Implementation</li>
-                        <li>Salesforce Service Cloud Optimization</li>
-                        <li>Salesforce Marketing Cloud Setup</li>
-                        <li>Salesforce Nonprofit Cloud & NPSP</li>
-                        <li>Salesforce Enterprise Architecture</li>
+                        <li><a href="/#silicon-slopes">Silicon Slopes</a></li>
+                        <li><a href="/rocky-mountain/region/">Rocky Mountain</a></li>
+                        <li><a href="/#utah-coverage">Utah Urban &amp; Rural</a></li>
+                        <li><a href="/midwest/region/">Missouri &amp; Kansas</a></li>
+                        <li>Nationwide</li>
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
-                <p>&copy; 2025 DevPipeline | SalesforceConsultants.io. All rights reserved. | 
-                            <a href="/privacy-policy/" style="color: var(--teal-dark);">Privacy Policy</a> | <a href="/cookie-policy/" style="color: var(--teal-dark);">Cookie Policy</a> | <a href="#" onclick="if(window.sfcOpenCookieSettings){sfcOpenCookieSettings();return false;}" style="color: var(--teal-dark);">Cookie Settings</a></p>
-                <p style="margin-top: 1rem; font-size: 0.9rem;">
-                    Salesforce, Sales Cloud, Service Cloud, Marketing Cloud, and other Salesforce products are trademarks of Salesforce.com, Inc. SalesforceConsultants.io is an independent Salesforce consulting firm.
+                <p>&copy; 2026 DevPipeline | SalesforceConsultants.io. All rights reserved. |
+                    <a href="/privacy-policy/">Privacy Policy</a> |
+                    <a href="/cookie-policy/">Cookie Policy</a> |
+                    <a href="#" onclick="if(window.sfcOptOut){sfcOptOut();return false;}">Do Not Sell or Share</a>
                 </p>
+                <p class="footer-legal">Salesforce, Sales Cloud, Service Cloud, Marketing Cloud, and other Salesforce products are trademarks of Salesforce.com, Inc. SalesforceConsultants.io is an independent Salesforce consulting firm.</p>
             </div>
         </div>
     </footer>

@@ -8,11 +8,11 @@
     </title>
     <meta
       name="description"
-      content="Salesforce consulting firm headquartered in Utah and Missouri, serving businesses across the Rocky Mountain and MO/KS regions, as well as enterprise clients worldwide. Book a $500 discovery."
+      content="Salesforce consulting firm headquartered in Utah and Missouri, serving businesses across the Rocky Mountain and MO/KS regions and the United States. Book a $500 discovery."
     />
     <meta
       name="keywords"
-      content="contact California Salesforce consultants, contact Missouri Salesforce consultants, contact Kansas Salesforce consultants, contact Utah Salesforce consultants, free Salesforce assessment, Salesforce consultation, Salesforce implementation cost, Salesforce ROI calculator, Salesforce consultant near me, Salesforce training contact, Salesforce migration services, Los Angeles Salesforce contact, Kansas City Salesforce contact, St. Louis Salesforce contact, Wichita Salesforce contact"
+      content="contact Silicon Slopes Salesforce consultants, contact Utah Salesforce consultants, contact Missouri Salesforce consultants, contact Kansas Salesforce consultants, $500 Salesforce discovery, Salesforce consultation, Salesforce implementation cost, Salesforce ROI calculator, Salesforce consultant near me, Lehi Salesforce contact, Orem Salesforce contact, Kansas City Salesforce contact, St. Louis Salesforce contact, Wichita Salesforce contact"
     />
     <meta name="author" content="SalesforceConsultants.io" />
     <meta
@@ -24,7 +24,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://salesforceconsultants.io/contact/" />
     <meta property="og:title" content="Contact Salesforce Consultants | Utah &amp; Missouri Headquarters" />
-    <meta property="og:description" content="Salesforce consulting firm headquartered in Utah and Missouri, serving the Rocky Mountain and MO/KS regions, plus enterprise clients worldwide." />
+    <meta property="og:description" content="Salesforce consulting firm headquartered in Utah and Missouri, serving the Rocky Mountain and MO/KS regions, plus U.S. businesses nationwide." />
     <meta property="og:image" content="https://salesforceconsultants.io/assets/SalesforceConsultants-Graphic.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -35,7 +35,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://salesforceconsultants.io/contact/" />
     <meta name="twitter:title" content="Contact Salesforce Consultants | Utah &amp; Missouri Headquarters" />
-    <meta name="twitter:description" content="Headquartered in Utah and Missouri. Serving Rocky Mountain and MO/KS regions, plus enterprise clients worldwide." />
+    <meta name="twitter:description" content="Headquartered in Utah and Missouri. Serving Rocky Mountain and MO/KS regions, plus U.S. businesses nationwide." />
     <meta name="twitter:image" content="https://salesforceconsultants.io/assets/SalesforceConsultants-Graphic.png" />
 
     <link
@@ -49,12 +49,12 @@
       "@context": "https://schema.org",
       "@type": "ContactPage",
       "name": "Contact Salesforce Consultants",
-      "description": "Contact our Salesforce consulting team headquartered in Utah (Orem / Salt Lake) and Missouri. Serving Rocky Mountain and MO/KS regions, plus enterprise clients worldwide.",
+      "description": "Contact our Salesforce consulting team headquartered in Utah (Orem / Salt Lake) and Missouri. Serving Rocky Mountain and MO/KS regions, plus U.S. businesses nationwide.",
       "url": "https://salesforceconsultants.io/contact/",
       "mainEntity": {
         "@type": "ProfessionalService",
         "name": "SalesforceConsultants.io",
-        "description": "Salesforce consulting firm headquartered in Utah and Missouri, serving businesses across the Rocky Mountain and MO/KS regions, as well as enterprise clients worldwide.",
+        "description": "Salesforce consulting firm headquartered in Utah and Missouri, serving businesses across the Rocky Mountain and MO/KS regions and the United States.",
         "url": "https://salesforceconsultants.io/",
         "telephone": "+1-385-309-0807",
         "email": "marketing@devpipeline.com",
@@ -80,7 +80,7 @@
             "addressCountry": "US"
           }
         ],
-        "areaServed": ["Utah", "Missouri", "Kansas", "Colorado", "Nevada", "Arizona", "Idaho", "Montana", "Wyoming", "USA", "Worldwide"],
+        "areaServed": ["Utah", "Missouri", "Kansas", "Colorado", "Nevada", "Arizona", "Idaho", "Montana", "Wyoming", "USA"],
         "serviceType": ["Salesforce Implementation", "Salesforce Training", "Salesforce Integration", "Salesforce Optimization"]
       }
     }
@@ -88,8 +88,8 @@
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-    <link rel="stylesheet" href="/styles.css?v=2026.10.3" />
-    <link rel="stylesheet" href="/components.css?v=2026.10.3">
+    <link rel="stylesheet" href="/styles.css?v=2026.10.19" />
+    <link rel="stylesheet" href="/components.css?v=2026.10.18">
 
     <style>
       .contact-hero {
@@ -201,31 +201,18 @@
         }
       }
 
-      @media (max-width: 768px) {
-        .contact-hero {
-          padding: 100px 0 60px;
-          min-height: 70vh;
-        }
-
-        .contact-hero-container {
-          grid-template-columns: 1fr;
-          gap: 3rem;
-          padding: 0 3vw;
-        }
-
-        .contact-hero-image {
-          height: 400px;
-          order: -1;
-        }
-      }
-
       .contact-form {
         display: grid;
-        grid-template-columns: 1fr 400px;
-        gap: 4rem;
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
+        gap: 2.5rem;
         max-width: 1200px;
         margin: 0 auto;
         align-items: start;
+        min-width: 0;
+      }
+
+      .contact-form > * {
+        min-width: 0;
       }
 
       form {
@@ -246,12 +233,7 @@
         left: 0;
         right: 0;
         height: 4px;
-        background: linear-gradient(
-          90deg,
-          var(--accent-orange),
-          var(--accent-gold),
-          var(--white)
-        );
+        background: var(--accent-gold);
       }
 
       .form-header {
@@ -277,6 +259,7 @@
         grid-template-columns: 1fr 1fr;
         gap: 1.5rem;
         margin-bottom: 1.5rem;
+        min-width: 0;
       }
 
       .form-group {
@@ -347,7 +330,7 @@
 
       .required-field::after {
         content: " *";
-        color: var(--accent-orange);
+        color: #2B7A78;
         font-weight: 700;
       }
 
@@ -446,6 +429,15 @@
         z-index: 2;
       }
 
+      .office-locations p {
+        overflow-wrap: break-word;
+      }
+
+      .office-locations strong {
+        display: block;
+        margin-bottom: 0.2rem;
+      }
+
       .contact-method {
         display: flex;
         align-items: center;
@@ -458,6 +450,8 @@
         border-radius: 10px;
         background: #FFFFFF;
         border: 1px solid #2B7A78;
+        overflow-wrap: anywhere;
+        word-break: break-word;
       }
 
       .contact-method:hover {
@@ -544,7 +538,7 @@
 
       .faq-item.active .faq-toggle {
         transform: rotate(45deg);
-        background: var(--accent-orange);
+        background: #2B7A78;
       }
 
       .faq-answer {
@@ -563,13 +557,13 @@
       }
 
       .faq-answer p {
-        color: var(--text-light);
+        color: var(--text-dark);
         line-height: 1.7;
         margin-bottom: 1rem;
       }
 
       .testimonial-answer {
-        background: rgba(217, 119, 6, 0.05);
+        background: var(--mint);
         border-left: 4px solid var(--accent-gold);
         padding: 1rem;
         margin: 1rem 0;
@@ -585,25 +579,90 @@
       }
 
       .testimonial-answer .author {
-        color: var(--accent-gold);
+        color: #2B7A78;
         font-weight: 600;
         font-size: 0.9rem;
       }
 
       .testimonial-answer .title {
-        color: var(--text-light);
+        color: var(--dark);
         font-size: 0.85rem;
         margin-top: 0.25rem;
       }
 
+      @media (max-width: 1280px) {
+        .contact-hero-container {
+          gap: 3rem;
+          padding: 0 4vw;
+        }
+
+        .contact-form {
+          gap: 2rem;
+        }
+      }
+
+      @media (max-width: 1100px) {
+        .contact-hero {
+          padding: 110px 0 48px;
+          min-height: 0;
+        }
+
+        .contact-hero-container {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          padding: 0 4vw;
+        }
+
+        .contact-hero-image {
+          height: 280px;
+          order: -1;
+        }
+
+        .contact-form {
+          grid-template-columns: 1fr;
+          gap: 1.75rem;
+          padding: 0 1rem;
+          max-width: 720px;
+        }
+
+        form {
+          padding: 2rem 1.5rem;
+        }
+
+        .form-row {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+
+        .contact-info {
+          padding: 1.75rem 1.5rem;
+        }
+      }
+
       @media (max-width: 768px) {
+        .contact-hero {
+          padding: 100px 0 40px;
+          min-height: 0;
+        }
+
+        .contact-hero-container {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          padding: 0 3vw;
+        }
+
+        .contact-hero-image {
+          height: 220px;
+          order: -1;
+        }
+
         .contact-hero h1 {
           font-size: 2.5rem;
         }
 
         .contact-form {
           grid-template-columns: 1fr;
-          gap: 2rem;
+          gap: 1.75rem;
           max-width: 100%;
           padding: 0 1rem;
         }
@@ -681,7 +740,7 @@
         }
       }
     </style>
-      <script src="/scripts/consent.js?v=2026.10.2" defer></script>
+      <script src="/scripts/consent.js?v=2026.10.8" defer></script>
 </head>
   <body>
     <header>
@@ -1385,84 +1444,61 @@
       </div>
     </section>
 
-    <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3>SalesforceConsultants.io</h3>
-            <p style="margin-bottom: 1rem">A DevPipeline Division</p>
-            <p>
-              Headquartered in Utah (Orem / Salt Lake) and Missouri. Serving Rocky Mountain and MO/KS businesses, plus enterprise clients nationwide and worldwide.
-            </p>
-            <div class="office-locations" style="margin-top: 1rem">
-              <p style="margin-bottom: 0.5rem;"><strong>Utah HQ</strong>518 E 800 N, Suite C, Orem, UT 84097</p>
-              <p style="margin-bottom: 0.5rem;"><strong>Missouri Office</strong>Kansas City, MO</p>
-              <p>(385) 309-0807</p>
-              <p>marketing@devpipeline.com</p>
+    <footer class="footer-component">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-brand">
+                    <h3>SalesforceConsultants.io</h3>
+                    <p>A DevPipeline Division</p>
+                    <p><strong>Utah HQ</strong> 518 E 800 N, Suite C, Orem, UT 84097</p>
+                    <p><strong>Missouri</strong> Kansas City, MO</p>
+                    <p><a href="tel:+13853090807">385-309-0807</a> · <a href="mailto:marketing@devpipeline.com">marketing@devpipeline.com</a></p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="/services/">Custom Development</a></li>
+                        <li><a href="/services/">Implementation</a></li>
+                        <li><a href="/services/">Training</a></li>
+                        <li><a href="/services/">Integrations</a></li>
+                        <li><a href="/services/">Automation</a></li>
+                        <li><a href="/services/">Migrations</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="/success-stories/">Success Stories</a></li>
+                        <li><a href="/expertise/">Expertise &amp; Certifications</a></li>
+                        <li><a href="/clients/">Our Clients</a></li>
+                        <li><a href="/contact/">Contact Us</a></li>
+                        <li><a href="/faq/">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Service Areas</h3>
+                    <ul>
+                        <li><a href="/#silicon-slopes">Silicon Slopes</a></li>
+                        <li><a href="/rocky-mountain/region/">Rocky Mountain</a></li>
+                        <li><a href="/#utah-coverage">Utah Urban &amp; Rural</a></li>
+                        <li><a href="/midwest/region/">Missouri &amp; Kansas</a></li>
+                        <li>Nationwide</li>
+                    </ul>
+                </div>
             </div>
-          </div>
 
-          <div class="footer-section">
-            <h3>Salesforce Services</h3>
-            <ul>
-              <li><a href="/services/">Salesforce Implementation</a></li>
-              <li><a href="/services/">Custom Salesforce Development</a></li>
-              <li>
-                <a href="/services/">Salesforce Training & Certification</a>
-              </li>
-              <li><a href="/services/">Salesforce System Integration</a></li>
-              <li><a href="/services/">Salesforce AI & Automation</a></li>
-              <li>
-                <a href="/services/">Nonprofit Salesforce Solutions</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="footer-section">
-            <h3>Industries We Serve</h3>
-            <ul>
-              <li>Nonprofit Organizations</li>
-              <li>Chambers of Commerce</li>
-              <li>Professional Associations</li>
-              <li>Membership Organizations</li>
-              <li>Professional Services</li>
-              <li>B2B Service Companies</li>
-            </ul>
-          </div>
-
-          <div class="footer-section">
-            <h3>Our Salesforce Expertise</h3>
-            <ul>
-              <li>15+ Salesforce Certifications</li>
-              <li>Salesforce Sales Cloud Implementation</li>
-              <li>Salesforce Service Cloud Optimization</li>
-              <li>Salesforce Marketing Cloud Setup</li>
-              <li>Salesforce Nonprofit Cloud & NPSP</li>
-              <li>Salesforce Enterprise Architecture</li>
-            </ul>
-          </div>
-
-          <div class="footer-section">
-            <h3>Connect With Us</h3>
-            <p>Ready to transform your business with Salesforce?</p>
-            <p>Contact us today for a free consultation and assessment.</p>
-          </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 DevPipeline | SalesforceConsultants.io. All rights reserved. |
+                    <a href="/privacy-policy/">Privacy Policy</a> |
+                    <a href="/cookie-policy/">Cookie Policy</a> |
+                    <a href="#" onclick="if(window.sfcOptOut){sfcOptOut();return false;}">Do Not Sell or Share</a>
+                </p>
+                <p class="footer-legal">Salesforce, Sales Cloud, Service Cloud, Marketing Cloud, and other Salesforce products are trademarks of Salesforce.com, Inc. SalesforceConsultants.io is an independent Salesforce consulting firm.</p>
+            </div>
         </div>
-
-        <div class="footer-bottom">
-          <p>
-            &copy; 2025 DevPipeline | SalesforceConsultants.io. All rights
-            reserved. |
-            <a href="/privacy-policy/" style="color: var(--teal-dark)">Privacy Policy</a> | <a href="/cookie-policy/" style="color: var(--teal-dark)">Cookie Policy</a> | <a href="#" onclick="if(window.sfcOpenCookieSettings){sfcOpenCookieSettings();return false;}" style="color: var(--teal-dark);">Cookie Settings</a>
-          </p>
-          <p style="margin-top: 1rem; font-size: 0.9rem">
-            Salesforce, Sales Cloud, Service Cloud, Marketing Cloud, and other
-            Salesforce products are trademarks of Salesforce.com, Inc.
-            SalesforceConsultants.io is an independent Salesforce consulting
-            firm.
-          </p>
-        </div>
-      </div>
     </footer>
 
     <script src="/script.js?v=2026.10.4"></script>

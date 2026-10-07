@@ -85,7 +85,10 @@ SFC.io/
 ├── faq/index.html                          # Frequently asked questions
 ├── business/index.html                     # Business solutions
 │
-├── california/region/index.html            # California regional page
+├── privacy-policy/index.html               # Privacy policy (opt-out)
+├── cookie-policy/index.html                # Cookie policy (opt-out)
+│
+├── california/region/index.html            # Redirect only — not a California service-area page
 ├── midwest/region/index.html               # Missouri & Kansas regional page
 ├── rocky-mountain/region/index.html        # Rocky Mountain regional page
 ├── surrounding-states/region/index.html    # Surrounding states page
@@ -126,18 +129,18 @@ These `.html` files at root level exist for backward compatibility and redirect 
 
 ## 5. Google Analytics 4 (GA4) — CRITICAL
 
-**Measurement ID**: `G-JXKDK1RBS0` (loaded only after cookie consent)
+**Measurement ID**: `G-JXKDK1RBS0` (runs on landing unless the visitor opts out)
 **Inactive / do not use**: `G-8ZNLKDLFEC`
 
-### Every page MUST include the consent loader
+### Every page MUST include the privacy/opt-out loader
 
-Place this in the `<head>` of every HTML page. Do **not** inline gtag.js. Analytics must not run until the visitor accepts:
+Place this in the `<head>` of every HTML page. Do **not** inline gtag.js. Analytics and commercial ad pixels may run on landing. A privacy notice must appear, with a visible **Do Not Sell or Share My Info** opt-out (footer + banner). Honor Global Privacy Control.
 
 ```html
 <script src="/scripts/consent.js" defer></script>
 ```
 
-`scripts/consent.js` sets Google Consent Mode defaults to denied, shows the cookie banner, and loads `G-JXKDK1RBS0` only after “Accept analytics”. See `/privacy-policy/` and `/cookie-policy/`.
+`scripts/consent.js` grants Consent Mode on landing, loads `G-JXKDK1RBS0`, shows the privacy notice, and turns analytics/ads off if the visitor opts out. See `/privacy-policy/` and `/cookie-policy/`.
 
 ### Custom Dimensions & Events
 
@@ -211,6 +214,8 @@ npm test
 - When modifying pages, ensure styles match the live site at https://salesforceconsultants.io/
 - Do not remove or alter GA4 tracking code unless explicitly asked
 - Do not modify the Flask mailer endpoint without confirmation
+- **Service area is the United States.** Feature Silicon Slopes, Rocky Mountain, MO/KS, and Utah urban/rural. Do not market California or countries outside the U.S. as service areas. LA Chamber of Commerce may remain as a client / testimonial. Global client operations (for example AP Systems) may be mentioned without treating those countries as target markets.
+- Do not add unlabeled generative-AI images. Utah’s synthetic-media labeling statute is aimed at political ads (Utah Code § 20A-11-1104). Utah consumer AI law (Utah Code § 13-77-103) requires disclosure when generative AI interacts with a person. This site has no AI chatbot; do not add one without a clear “you are interacting with AI” disclosure.
 
 ---
 

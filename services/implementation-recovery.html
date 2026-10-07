@@ -13,8 +13,8 @@
     <!-- Oceanwide Pro Font -->
     
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="/styles.css?v=2024.1.24">
-    <link rel="stylesheet" href="/components.css?v=2026.10.3">
+    <link rel="stylesheet" href="/styles.css?v=2026.10.19">
+    <link rel="stylesheet" href="/components.css?v=2026.10.18">
     
     <!-- Additional styles for recovery page -->
     <style>
@@ -152,7 +152,7 @@
         .process-step p {
             font-size: 1rem;
             line-height: 1.5;
-            color: var(--text-light);
+            color: var(--text-dark);
         }
         
         .failure-scenarios {
@@ -180,7 +180,7 @@
         }
         
         .scenario-card p {
-            color: var(--text-light);
+            color: var(--text-dark);
             line-height: 1.6;
         }
         
@@ -288,7 +288,7 @@
             }
         }
     </style>
-    <script src="/scripts/consent.js?v=2026.10.2" defer></script>
+    <script src="/scripts/consent.js?v=2026.10.8" defer></script>
 </head>
 <body>
     <!-- Header -->
@@ -477,54 +477,59 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer-component">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
+                <div class="footer-section footer-brand">
                     <h3>SalesforceConsultants.io</h3>
-                    <p style="margin-bottom: 1rem;">A DevPipeline Division</p>
-                    <p>Expert Salesforce implementation recovery services that rescue failed projects and build self-sufficient teams.</p>
-                    <div style="margin-top: 1rem;">
-                                        <p>(385) 309-0807</p>
-                <p>marketing@salesforceconsultants.io</p>
-                        <p>www.salesforceconsultants.io</p>
-                    </div>
+                    <p>A DevPipeline Division</p>
+                    <p><strong>Utah HQ</strong> 518 E 800 N, Suite C, Orem, UT 84097</p>
+                    <p><strong>Missouri</strong> Kansas City, MO</p>
+                    <p><a href="tel:+13853090807">385-309-0807</a> · <a href="mailto:marketing@devpipeline.com">marketing@devpipeline.com</a></p>
                 </div>
-                
+
                 <div class="footer-section">
-                    <h3>Recovery Services</h3>
+                    <h3>Services</h3>
                     <ul>
-                        <li><a href="implementation-recovery.html">Implementation Recovery</a></li>
-                        <li><a href="team-self-sufficiency-training.html">Team Self-Sufficiency Training</a></li>
-                        <li><a href="certified-architecture-services.html">Certified Architecture Services</a></li>
-                        <li><a href="emergency-support.html">Emergency Support</a></li>
-                        <li><a href="cloud-recovery-services.html">Cloud Recovery Services</a></li>
+                        <li><a href="/services/">Custom Development</a></li>
+                        <li><a href="/services/">Implementation</a></li>
+                        <li><a href="/services/">Training</a></li>
+                        <li><a href="/services/">Integrations</a></li>
+                        <li><a href="/services/">Automation</a></li>
+                        <li><a href="/services/">Migrations</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
-                    <h3>Industries We Serve</h3>
+                    <h3>Resources</h3>
                     <ul>
-                        <li>Nonprofit Organizations</li>
-                        <li>Chambers of Commerce</li>
-                        <li>Professional Associations</li>
-                        <li>Membership Organizations</li>
-                        <li>Professional Services</li>
-                        <li>B2B Service Companies</li>
+                        <li><a href="/success-stories/">Success Stories</a></li>
+                        <li><a href="/expertise/">Expertise &amp; Certifications</a></li>
+                        <li><a href="/clients/">Our Clients</a></li>
+                        <li><a href="/contact/">Contact Us</a></li>
+                        <li><a href="/faq/">FAQ</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
-                    <h3>Our Recovery Expertise</h3>
+                    <h3>Service Areas</h3>
                     <ul>
-                        <li>95% Implementation Recovery Rate</li>
-                        <li>15+ Salesforce Certifications</li>
-                        <li>Emergency Response Within 2 Hours</li>
-                        <li>Multi-Location Coverage (CA & UT)</li>
-                        <li>Self-Sufficiency Building</li>
-                        <li>Proven Recovery Methodology</li>
+                        <li><a href="/#silicon-slopes">Silicon Slopes</a></li>
+                        <li><a href="/rocky-mountain/region/">Rocky Mountain</a></li>
+                        <li><a href="/#utah-coverage">Utah Urban &amp; Rural</a></li>
+                        <li><a href="/midwest/region/">Missouri &amp; Kansas</a></li>
+                        <li>Nationwide</li>
                     </ul>
                 </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 DevPipeline | SalesforceConsultants.io. All rights reserved. |
+                    <a href="/privacy-policy/">Privacy Policy</a> |
+                    <a href="/cookie-policy/">Cookie Policy</a> |
+                    <a href="#" onclick="if(window.sfcOptOut){sfcOptOut();return false;}">Do Not Sell or Share</a>
+                </p>
+                <p class="footer-legal">Salesforce, Sales Cloud, Service Cloud, Marketing Cloud, and other Salesforce products are trademarks of Salesforce.com, Inc. SalesforceConsultants.io is an independent Salesforce consulting firm.</p>
             </div>
         </div>
     </footer>

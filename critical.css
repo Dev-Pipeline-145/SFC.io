@@ -1,16 +1,22 @@
 /* Critical CSS for above-the-fold content - Improves LCP and FCP */
 
 :root {
-    --black: #000000;
-    --white: #ffffff;
-    --teal: #3AAFA9;
+    --navy: #17252A;
+    --teal-deep: #2B7A78;
+    --teal-bright: #3AAFA9;
+    --mint: #DEF2F1;
+    --gold: #F2C57C;
+    --black: #17252A;
+    --white: #FFFFFF;
+    --teal: #2B7A78;
     --dark: #17252A;
-    --light-gray: #f5f5f5;
+    --light-gray: #FFFFFF;
     --teal-light: #3AAFA9;
     --teal-dark: #2B7A78;
-    --dark-light: #2A3F45;
-    --mint: #DEF2F1;
+    --dark-light: #2B7A78;
     --accent-gold: #F2C57C;
+    --primary-teal: #2B7A78;
+    --primary-dark: #17252A;
     --shadow-light: 0 2px 10px rgba(0,0,0,0.1);
     --shadow-medium: 0 4px 20px rgba(0,0,0,0.15);
     --border-radius: 12px;
@@ -196,7 +202,7 @@ header {
 
 .section-subtitle {
     font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-    color: #5a6c7d;
+    color: var(--dark);
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;

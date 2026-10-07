@@ -19,7 +19,6 @@ const pages = [
   { file: 'clients/index.html', name: 'Clients' },
   { file: 'faq/index.html', name: 'FAQ' },
   { file: 'business/index.html', name: 'Business' },
-  { file: 'california/region/index.html', name: 'California Region' },
   { file: 'midwest/region/index.html', name: 'Midwest Region' },
   { file: 'rocky-mountain/region/index.html', name: 'Rocky Mountain Region' },
   { file: 'salesforce-consulting-services/index.html', name: 'SEO: Services' },
@@ -31,7 +30,6 @@ const pages = [
 // Pages that must have the sendEmail.js script
 const pagesWithForms = [
   { file: 'contact/index.html', name: 'Contact' },
-  { file: 'california/region/index.html', name: 'California Region' },
   { file: 'midwest/region/index.html', name: 'Midwest Region' },
   { file: 'rocky-mountain/region/index.html', name: 'Rocky Mountain Region' },
 ];
@@ -55,7 +53,7 @@ describe('GA4 Analytics Tracking', () => {
         expect(html).not.toBeNull();
       });
 
-      it('should include consent-gated analytics loader', () => {
+      it('should include the privacy/opt-out analytics loader', () => {
         if (!html) return;
         expect(html).toContain('/scripts/consent.js');
       });
@@ -74,11 +72,12 @@ describe('GA4 Analytics Tracking', () => {
 });
 
 describe('Consent loader and legal pages', () => {
-  it('consent.js should load only G-JXKDK1RBS0 after accept', () => {
+  it('consent.js should load G-JXKDK1RBS0 on landing with an opt-out', () => {
     const js = readPage('scripts/consent.js');
     expect(js).toContain(GA4_MEASUREMENT_ID);
     expect(js).not.toContain('G-8ZNLKDLFEC');
-    expect(js).toContain("analytics_storage: \"denied\"");
+    expect(js).toContain('Do Not Sell or Share My Info');
+    expect(js).toContain('opted_out');
   });
 
   it('privacy policy page should exist and describe $500 discovery collection', () => {
@@ -88,10 +87,10 @@ describe('Consent loader and legal pages', () => {
     expect(html).toContain(GA4_MEASUREMENT_ID);
   });
 
-  it('cookie policy page should exist and require consent for analytics', () => {
+  it('cookie policy page should describe opt-out analytics', () => {
     const html = readPage('cookie-policy/index.html');
     expect(html).not.toBeNull();
-    expect(html).toContain('only after you accept');
+    expect(html).toContain('Do Not Sell or Share');
     expect(html).toContain(GA4_MEASUREMENT_ID);
   });
 });
